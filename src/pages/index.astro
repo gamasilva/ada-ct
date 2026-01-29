@@ -1,0 +1,115 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Header } from "../components/Header";
+import { Features } from "../components/Features";
+import { Services } from "../components/Services";
+import { NossaEstrutura } from "../components/NossaEstrutura";
+import { PreRequisites } from "../components/PreRequisites";
+import { About } from "../components/About";
+import { DogGallery } from "../components/DogGallery";
+import { Team } from "../components/Team";
+import { FAQ } from "../components/FAQ";
+import { Footer } from "../components/Footer";
+import { WhatsAppButton } from "../components/WhatsAppButton";
+import { Testimonials } from "../components/Testimonials";
+---
+
+<Layout title="Home">
+	<Header client:load />
+
+	<main class="relative z-10 pt-20">
+		<!-- Hero Section -->
+		<section
+			id="home"
+			class="relative min-h-[90vh] flex items-center justify-center overflow-hidden"
+		>
+			<!-- Background Image -->
+			<div
+				class="absolute inset-0 z-0 bg-[length:100%_auto] bg-center bg-no-repeat bg-fixed bg-green-900"
+				style="background-image: url('/background-montage.png');"
+			>
+				<div class="absolute inset-0 bg-black/60"></div>
+			</div>
+			<div
+				class="container mx-auto px-4 md:px-6 text-center relative z-20 pb-40"
+			>
+				<div
+					class="inline-block px-4 py-1.5 mb-6 rounded-full bg-yellow-500/20 text-yellow-400 font-bold text-sm tracking-wider uppercase border border-yellow-400/30"
+				>
+					CT e Hotel para Cães RK9
+				</div>
+
+				<h1
+					class="text-6xl md:text-7xl lg:text-9xl font-black text-white mb-8 tracking-tight leading-tight drop-shadow-2xl"
+				>
+					Hospedagem e <br class="hidden md:block" />
+					<span class="text-yellow-400"> Adestramento de Elite </span>
+				</h1>
+
+				<p
+					class="text-xl md:text-2xl text-white mb-10 max-w-2xl mx-auto leading-relaxed drop-shadow-lg font-medium"
+				>
+					O refúgio perfeito para o seu melhor amigo. Combine
+					diversão, aprendizado e conforto em um ambiente planejado
+					por especialistas.
+				</p>
+
+				<div
+					class="flex flex-col sm:flex-row gap-4 justify-center items-center relative z-30"
+				>
+					<a
+						href="/reservas"
+						class="bg-green-700 hover:bg-green-800 text-white px-8 py-4 rounded-full font-bold text-lg transition-all hover:scale-105 shadow-xl hover:shadow-green-700/30 w-full sm:w-auto"
+					>
+						Agendar Visita
+					</a>
+					<a
+						href="/#quem-somos"
+						class="bg-white text-green-700 hover:bg-yellow-400 hover:text-gray-900 border-2 border-white px-8 py-4 rounded-full font-bold text-lg transition-all hover:scale-105 shadow-lg hover:shadow-xl w-full sm:w-auto flex items-center justify-center gap-2"
+					>
+						Conhecer o Espaço
+					</a>
+				</div>
+			</div>
+
+			<!-- Wave Divider -->
+			<div
+				class="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-30 translate-y-[1px]"
+			>
+				<svg
+					class="relative block w-full h-[60px] md:h-[120px]"
+					data-name="Layer 1"
+					xmlns="http://www.w3.org/2000/svg"
+					viewBox="0 0 1200 120"
+					preserveAspectRatio="none"
+				>
+					<path
+						d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+						fill="#ffffff"></path>
+				</svg>
+			</div>
+		</section>
+
+		<!-- React Islands -->
+		<Features client:visible />
+
+		<About client:visible />
+
+		<DogGallery client:visible />
+
+		<Services client:visible />
+
+		<NossaEstrutura client:visible />
+
+		<PreRequisites client:visible />
+
+		<Team client:visible />
+
+		<Testimonials client:visible />
+
+		<FAQ client:visible />
+	</main>
+
+	<Footer client:visible />
+	<WhatsAppButton client:load />
+</Layout>

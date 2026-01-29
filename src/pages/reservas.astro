@@ -1,0 +1,33 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Header } from "../components/Header";
+import { Footer } from "../components/Footer";
+import { BookingForm } from "../components/BookingForm";
+---
+
+<Layout title="Reservas">
+    <Header client:load />
+
+    <main class="relative z-10 pt-32 pb-24 min-h-screen bg-gray-50/50">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="text-center mb-12">
+                <h1
+                    class="text-4xl md:text-5xl font-black text-gray-900 mb-4 tracking-tight"
+                >
+                    Faça sua Reserva
+                </h1>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Garanta o lugar do seu melhor amigo com antecedência.
+                    Preencha o formulário abaixo e entraremos em contato para
+                    confirmar a disponibilidade.
+                </p>
+            </div>
+
+            <div class="max-w-6xl mx-auto">
+                <BookingForm client:visible />
+            </div>
+        </div>
+    </main>
+
+    <Footer client:visible />
+</Layout>

@@ -1,0 +1,28 @@
+{
+  "name": "adact",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/react": "^4.4.2",
+    "@hookform/resolvers": "^5.2.2",
+    "@tailwindcss/vite": "^4.1.18",
+    "@types/react": "^19.2.10",
+    "@types/react-dom": "^19.2.3",
+    "astro": "^5.16.16",
+    "date-fns": "^4.1.0",
+    "framer-motion": "^12.29.2",
+    "lucide-react": "^0.563.0",
+    "react": "^19.2.4",
+    "react-day-picker": "^9.13.0",
+    "react-dom": "^19.2.4",
+    "react-hook-form": "^7.71.1",
+    "tailwindcss": "^4.1.18",
+    "zod": "^3.25.76"
+  }
+}

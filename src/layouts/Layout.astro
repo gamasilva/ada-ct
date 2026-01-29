@@ -1,0 +1,42 @@
+---
+import "../styles/global.css";
+import { InteractiveDogBackground } from "../components/ui/InteractiveDogBackground";
+import { ScrollRevealBackground } from "../components/ui/ScrollRevealBackground";
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const {
+  title,
+  description = "Hospedagem e Adestramento de Elite para seu melhor amigo.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="pt-BR" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title} | CT e Hotel RK9</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body
+    class="font-[Inter] text-gray-900 bg-white selection:bg-primary selection:text-white overflow-x-hidden"
+  >
+    <InteractiveDogBackground client:load />
+    <ScrollRevealBackground client:load />
+    <slot />
+  </body>
+</html>
