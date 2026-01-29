@@ -28,6 +28,9 @@ export const InteractiveDogBackground = () => {
 
     // Generate floating items on mount (client-side only)
     useEffect(() => {
+        // Optimization: Disable on mobile to improve PageSpeed/TBT
+        if (window.innerWidth < 768) return;
+
         const generatedItems: FloatingItem[] = Array.from({ length: 18 }).map((_, i) => ({
             id: i,
             type: Math.random() > 0.5 ? 'paw' : 'bone',

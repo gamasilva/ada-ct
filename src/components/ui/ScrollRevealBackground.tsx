@@ -25,6 +25,9 @@ export const ScrollRevealBackground = () => {
     const [elements, setElements] = React.useState<ReturnType<typeof generateElements>>([]);
 
     React.useEffect(() => {
+        // Optimization: Disable on mobile to improve PageSpeed/TBT
+        if (window.innerWidth < 768) return;
+
         setElements(generateElements(60));
     }, []);
 

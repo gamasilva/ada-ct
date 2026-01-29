@@ -31,12 +31,26 @@ const {
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap"
       rel="stylesheet"
     />
+
+    <!-- LCP Optimization: Preload Hero Image -->
+    <link
+      rel="preload"
+      as="image"
+      href="/hero-bg-v2.png"
+      media="(min-width: 768px)"
+    />
+    <link
+      rel="preload"
+      as="image"
+      href="/hero-bg-mobile.png"
+      media="(max-width: 767px)"
+    />
   </head>
   <body
     class="font-[Inter] text-gray-900 bg-white selection:bg-primary selection:text-white overflow-x-hidden"
   >
-    <InteractiveDogBackground client:load />
-    <ScrollRevealBackground client:load />
+    <InteractiveDogBackground client:idle />
+    <ScrollRevealBackground client:idle />
     <slot />
   </body>
 </html>

@@ -136,11 +136,13 @@ export const Testimonials = () => {
                                     {/* Reviewer Info */}
                                     <div className="flex items-center gap-4 pt-4 border-t border-gray-100 relative z-10">
                                         <img
-                                            src={review.image}
+                                            src={review.image.replace('w=200', 'w=100')}
+                                            srcSet={`${review.image.replace('w=200', 'w=48')} 1x, ${review.image.replace('w=200', 'w=96')} 2x`}
                                             alt={review.name}
                                             width={48}
                                             height={48}
                                             loading="lazy"
+                                            decoding="async"
                                             className="w-12 h-12 rounded-full object-cover ring-2 ring-gray-100"
                                         />
                                         <div>

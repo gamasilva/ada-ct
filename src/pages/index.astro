@@ -24,36 +24,37 @@ import { Testimonials } from "../components/Testimonials";
 			class="relative min-h-[90vh] flex items-center justify-center overflow-hidden"
 		>
 			<!-- Background Image -->
-			<div
-				class="absolute inset-0 z-0 bg-[length:100%_auto] bg-center bg-no-repeat bg-fixed bg-green-900 md:bg-cover"
-				id="hero-bg"
-			>
-				<style>
-					#hero-bg {
-						background-image: url("/hero-bg-mobile.png");
-						background-size: cover;
-						background-position: center;
-					}
-					@media (min-width: 768px) {
-						#hero-bg {
-							background-image: url("/hero-bg-v2.png");
-						}
-					}
-				</style>
+			<!-- Background Image (LCP Optimized) -->
+			<div class="absolute inset-0 z-0">
+				<picture>
+					<source
+						media="(min-width: 768px)"
+						srcset="/hero-bg-v2.png"
+					/>
+					<img
+						src="/hero-bg-mobile.png"
+						alt="Hotel e Adestramento de Cães"
+						class="w-full h-full object-cover"
+						fetchpriority="high"
+						loading="eager"
+						decoding="sync"
+					/>
+				</picture>
 				<div class="absolute inset-0 bg-black/40"></div>
 			</div>
+
 			<div
 				class="container mx-auto px-4 md:px-6 text-center relative z-20 pb-40"
 			>
 				<h1
-					class="text-6xl md:text-7xl lg:text-9xl font-black text-white mb-8 tracking-tight leading-tight drop-shadow-2xl"
+					class="text-4xl sm:text-5xl md:text-7xl lg:text-9xl font-black text-white mb-8 tracking-tight leading-tight drop-shadow-2xl"
 				>
 					Hospedagem e <br class="hidden md:block" />
 					<span class="text-yellow-400"> Adestramento </span>
 				</h1>
 
 				<p
-					class="text-xl md:text-2xl text-white mb-10 max-w-2xl mx-auto leading-relaxed drop-shadow-lg font-medium"
+					class="text-lg sm:text-xl md:text-2xl text-white mb-10 max-w-2xl mx-auto leading-relaxed drop-shadow-lg font-medium"
 				>
 					O refúgio perfeito para o seu melhor amigo. Combine
 					diversão, aprendizado e conforto em um ambiente planejado
@@ -117,5 +118,5 @@ import { Testimonials } from "../components/Testimonials";
 	</main>
 
 	<Footer client:visible />
-	<WhatsAppButton client:load />
+	<WhatsAppButton client:idle />
 </Layout>

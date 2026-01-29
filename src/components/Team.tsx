@@ -79,8 +79,10 @@ export const Team = () => {
                                     alt={member.name}
                                     width={400}
                                     height={300}
+                                    sizes="(max-width: 768px) 100vw, 400px"
                                     loading="lazy"
-                                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                    decoding="async"
+                                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                                 />
 
                                 {/* Verified Badge Overlay */}

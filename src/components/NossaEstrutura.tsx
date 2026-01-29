@@ -57,6 +57,8 @@ export const NossaEstrutura = () => {
                             <div className="h-48 overflow-hidden">
                                 <img
                                     src={item.image}
+                                    srcSet={`${item.image.replace('w=800', 'w=400')} 400w, ${item.image.replace('w=800', 'w=800')} 800w`}
+                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                                     alt={item.alt}
                                     width={400}
                                     height={192}
