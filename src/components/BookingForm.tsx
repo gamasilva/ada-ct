@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { DayPicker } from 'react-day-picker';
 import { format } from 'date-fns';
-// import { useForm } from 'react-hook-form'; // Removed unused import to prevent confusion
+
 import { ptBR } from 'date-fns/locale';
 import 'react-day-picker/dist/style.css';
 import { Upload, Calendar as CalendarIcon, Dog, User, Phone, Send } from 'lucide-react';

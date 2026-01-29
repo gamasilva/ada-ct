@@ -5,25 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  // Smooth scroll handler
-  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    e.preventDefault();
-    setIsOpen(false);
 
-    // Check if it's a hash link on the home page
-    if (href.startsWith('/#')) {
-      const targetId = href.replace('/#', '');
-      const element = document.getElementById(targetId);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-        return;
-      }
-      // If not found (e.g., we are on another page), navigate there
-      window.location.href = href;
-    } else {
-      window.location.href = href;
-    }
-  };
 
   const navLinks = [
     { label: 'Início', href: '/#home' },
@@ -65,7 +47,7 @@ export const Header = () => {
               <a
                 key={item.label}
                 href={item.href}
-                className="text-sm font-bold text-white hover:text-yellow-400 transition-all uppercase tracking-wide hover:scale-105"
+                className="text-sm font-bold text-white hover:text-yellow-400 transition-all uppercase tracking-wide hover:scale-105 py-3 px-2 rounded-lg" // Added padding for touch target
               >
                 {item.label}
               </a>

@@ -5,13 +5,13 @@ const structureItems = [
     {
         title: "Suítes de Descanso Climatizadas",
         description: "Baias individuais, higienizadas e com temperatura controlada para uma noite de sono tranquila e segura.",
-        image: "https://images.unsplash.com/photo-1597633425046-08f5110420b5?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", // Indoor comfort/bed
+        image: "https://images.unsplash.com/photo-1597633425046-08f5110420b5?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", // Indoor comfort/bed
         alt: "Cão dormindo confortavelmente"
     },
     {
         title: "Ampla Área Verde de Lazer",
         description: "Milhares de metros quadrados de gramado cercado para corridas, brincadeiras e gasto de energia supervisionado.",
-        image: "https://images.unsplash.com/photo-1534361960057-19889db9621e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", // Wide grassy field
+        image: "https://images.unsplash.com/photo-1534361960057-19889db9621e?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", // Wide grassy field
         alt: "Cães correndo na grama"
     },
     {

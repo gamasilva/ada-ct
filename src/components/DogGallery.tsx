@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Bone } from 'lucide-react';
+import { getOptimizedImage, getResponsiveSrcSet } from '../utils/cloudinary';
 
 const galleryImages = [
     "https://res.cloudinary.com/drun5ro6g/image/upload/v1769644237/Cachorrada_linda_da_turminha_de_quinta-feira_wcmoyo.jpg",
@@ -59,7 +60,9 @@ export const DogGallery = () => {
                                 {/* Image */}
                                 <div className="w-full h-full rounded-2xl overflow-hidden relative z-10 p-1 bg-white">
                                     <img
-                                        src={image}
+                                        src={getOptimizedImage(image, 600)}
+                                        srcSet={getResponsiveSrcSet(image, [400, 600, 800])}
+                                        sizes="(max-width: 768px) 300px, 400px"
                                         alt={`Momento RK9 ${index + 1}`}
                                         width={400}
                                         height={300}
@@ -73,7 +76,7 @@ export const DogGallery = () => {
                     </motion.div>
                 </motion.div>
 
-                <p className="text-center text-gray-500 mt-8 text-sm flex items-center justify-center gap-2">
+                <p className="text-center text-gray-600 mt-8 text-sm flex items-center justify-center gap-2">
                     <span className="w-2 h-2 rounded-full bg-yellow-400 animate-pulse"></span>
                     Arraste para ver mais
                 </p>

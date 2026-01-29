@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { CheckCircle } from 'lucide-react';
+import { getOptimizedImage, getResponsiveSrcSet } from '../utils/cloudinary';
 
 export const About = () => {
     return (
@@ -17,7 +18,9 @@ export const About = () => {
                     >
                         <div className="relative rounded-3xl overflow-hidden shadow-2xl">
                             <img
-                                src="https://res.cloudinary.com/drun5ro6g/image/upload/v1769642928/Inaugura%C3%A7%C3%A3o_do_CT_RK9_Agora_estamos_oficialmente_abertos._Obrigado_a_todos_os_envolvidos_c3btue.jpg"
+                                src={getOptimizedImage("https://res.cloudinary.com/drun5ro6g/image/upload/v1769642928/Inaugura%C3%A7%C3%A3o_do_CT_RK9_Agora_estamos_oficialmente_abertos._Obrigado_a_todos_os_envolvidos_c3btue.jpg", 800)}
+                                srcSet={getResponsiveSrcSet("https://res.cloudinary.com/drun5ro6g/image/upload/v1769642928/Inaugura%C3%A7%C3%A3o_do_CT_RK9_Agora_estamos_oficialmente_abertos._Obrigado_a_todos_os_envolvidos_c3btue.jpg", [600, 800, 1200])}
+                                sizes="(max-width: 768px) 100vw, 600px"
                                 alt="Centro de Treinamento RK9 - Fachada"
                                 width={600}
                                 height={800}

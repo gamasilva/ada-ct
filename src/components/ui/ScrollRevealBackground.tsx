@@ -28,6 +28,8 @@ export const ScrollRevealBackground = () => {
         setElements(generateElements(60));
     }, []);
 
+    if (elements.length === 0) return null;
+
     return (
         <div className="fixed inset-0 -z-10 pointer-events-none overflow-hidden">
             {elements.map((element) => {

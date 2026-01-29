@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Home, Sun, GraduationCap, Users } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { getOptimizedImage, getResponsiveSrcSet } from '../utils/cloudinary';
 
 interface Service {
     id: string;
@@ -86,10 +87,16 @@ export const Services = () => {
                                 onMouseLeave={() => setActiveCard(null)}
                                 onClick={() => setActiveCard(isActive ? null : service.id)}
                             >
-                                {/* Background Image */}
-                                <div
-                                    className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
-                                    style={{ backgroundImage: `url(${service.image})` }}
+                                {/* Optimized Background Image */}
+                                <img
+                                    src={getOptimizedImage(service.image, 800)}
+                                    srcSet={getResponsiveSrcSet(service.image, [400, 800])}
+                                    sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 25vw"
+                                    alt={service.title}
+                                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                    loading="lazy"
+                                    width="400"
+                                    height="400"
                                 />
 
                                 {/* Default Gradient Overlay (Bottom) */}
