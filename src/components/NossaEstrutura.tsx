@@ -17,20 +17,20 @@ const structureItems = [
     {
         title: "Pista de Treinamento e Agility",
         description: "Estrutura profissional completa para exercícios físicos e sessões de adestramento focadas e dinâmicas.",
-        image: "https://images.unsplash.com/photo-1601134458348-4361f9b62443?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", // Agility/Training
-        alt: "Pista de Agility"
+        image: "/agility-dog.png", // Agility/Training
+        alt: "Cão saltando obstáculo de agility"
     },
     {
         title: "Segurança e Monitoramento 24h",
         description: "Ambiente totalmente murado, com câmeras de vigilância e equipe capacitada sempre atenta ao bem-estar dos cães.",
-        image: "https://images.unsplash.com/photo-1599184467586-004f61d13737?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", // Security/Watch dog or fence
-        alt: "Segurança e Monitoramento"
+        image: "/security-dog.png", // Security/Watch dog
+        alt: "Cão de guarda em alerta"
     }
 ];
 
 export const NossaEstrutura = () => {
     return (
-        <section className="py-24 bg-gray-50 relative z-10">
+        <section id="estrutura" className="py-24 bg-gray-50 relative z-10">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Header */}
                 <div className="text-center mb-16">
@@ -58,6 +58,9 @@ export const NossaEstrutura = () => {
                                 <img
                                     src={item.image}
                                     alt={item.alt}
+                                    width={400}
+                                    height={192}
+                                    loading="lazy"
                                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                                 />
                             </div>

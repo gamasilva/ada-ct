@@ -53,6 +53,8 @@ export const Header = () => {
             <img
               src="/logo.png"
               alt="RK9 Logo"
+              width={48}
+              height={48}
               className="h-12 w-auto rounded-full shadow-lg shadow-yellow-500/50 hover:scale-105 transition-all duration-300 hover:shadow-yellow-500/80 border-2 border-yellow-500/30"
             />
           </a>
@@ -86,39 +88,41 @@ export const Header = () => {
           </button>
         </div>
 
-        {/* Mobile Nav */}
-        <AnimatePresence>
-          {isOpen && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              className="lg:hidden mt-0 bg-green-800 rounded-b-2xl overflow-hidden shadow-xl border-t border-white/10"
-            >
-              <div className="flex flex-col p-4 space-y-4">
-                {navLinks.map((item) => (
-                  <a
-                    key={item.label}
-                    href={item.href}
-                    onClick={() => setIsOpen(false)}
-                    className="text-white font-semibold p-3 hover:bg-green-700/50 rounded-lg block border-b border-white/5 last:border-0 hover:text-yellow-400 transition-colors"
-                  >
-                    {item.label}
-                  </a>
-                ))}
 
-                <a
-                  href="/reservas"
-                  onClick={() => setIsOpen(false)}
-                  className="bg-yellow-500 text-gray-900 text-center py-3 rounded-xl font-bold shadow-sm"
-                >
-                  Reservar Agora
-                </a>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
       </div>
+
+      {/* Mobile Nav - Full Width Overlay */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="lg:hidden absolute top-20 left-0 w-full bg-green-800 shadow-2xl border-t border-white/10 z-50 max-h-[calc(100vh-5rem)] overflow-y-auto"
+          >
+            <div className="flex flex-col p-6 space-y-4">
+              {navLinks.map((item) => (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  onClick={() => setIsOpen(false)}
+                  className="text-white font-bold text-lg p-4 hover:bg-green-700/50 rounded-xl block border-b border-white/5 last:border-0 hover:text-yellow-400 transition-colors"
+                >
+                  {item.label}
+                </a>
+              ))}
+
+              <a
+                href="/reservas"
+                onClick={() => setIsOpen(false)}
+                className="bg-yellow-500 text-gray-900 text-center py-4 rounded-xl font-black text-lg shadow-md hover:bg-yellow-400 transition-colors mt-4"
+              >
+                Reservar Agora
+              </a>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 };

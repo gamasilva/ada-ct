@@ -25,25 +25,31 @@ import { Testimonials } from "../components/Testimonials";
 		>
 			<!-- Background Image -->
 			<div
-				class="absolute inset-0 z-0 bg-[length:100%_auto] bg-center bg-no-repeat bg-fixed bg-green-900"
-				style="background-image: url('/background-montage.png');"
+				class="absolute inset-0 z-0 bg-[length:100%_auto] bg-center bg-no-repeat bg-fixed bg-green-900 md:bg-cover"
+				id="hero-bg"
 			>
-				<div class="absolute inset-0 bg-black/60"></div>
+				<style>
+					#hero-bg {
+						background-image: url("/hero-bg-mobile.png");
+						background-size: cover;
+						background-position: center;
+					}
+					@media (min-width: 768px) {
+						#hero-bg {
+							background-image: url("/hero-bg-v2.png");
+						}
+					}
+				</style>
+				<div class="absolute inset-0 bg-black/40"></div>
 			</div>
 			<div
 				class="container mx-auto px-4 md:px-6 text-center relative z-20 pb-40"
 			>
-				<div
-					class="inline-block px-4 py-1.5 mb-6 rounded-full bg-yellow-500/20 text-yellow-400 font-bold text-sm tracking-wider uppercase border border-yellow-400/30"
-				>
-					CT e Hotel para Cães RK9
-				</div>
-
 				<h1
 					class="text-6xl md:text-7xl lg:text-9xl font-black text-white mb-8 tracking-tight leading-tight drop-shadow-2xl"
 				>
 					Hospedagem e <br class="hidden md:block" />
-					<span class="text-yellow-400"> Adestramento de Elite </span>
+					<span class="text-yellow-400"> Adestramento </span>
 				</h1>
 
 				<p

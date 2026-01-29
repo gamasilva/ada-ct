@@ -19,6 +19,9 @@ export const About = () => {
                             <img
                                 src="https://res.cloudinary.com/drun5ro6g/image/upload/v1769642928/Inaugura%C3%A7%C3%A3o_do_CT_RK9_Agora_estamos_oficialmente_abertos._Obrigado_a_todos_os_envolvidos_c3btue.jpg"
                                 alt="Centro de Treinamento RK9 - Fachada"
+                                width={600}
+                                height={800}
+                                loading="lazy"
                                 className="w-full aspect-[3/4] object-cover"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-8">

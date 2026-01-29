@@ -32,7 +32,7 @@ const rules = [
 
 export const PreRequisites = () => {
     return (
-        <section className="py-24 relative z-10 bg-white/60 backdrop-blur-sm">
+        <section id="regras" className="py-24 relative z-10 bg-white/60 backdrop-blur-sm">
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Header */}
                 <div className="text-center mb-16">

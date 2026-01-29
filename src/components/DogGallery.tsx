@@ -21,7 +21,7 @@ export const DogGallery = () => {
     }, []);
 
     return (
-        <section className="py-24 bg-white/60 backdrop-blur-sm relative z-10 overflow-hidden">
+        <section id="dog-gallery" className="py-24 bg-white/60 backdrop-blur-sm relative z-10 overflow-hidden">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Header */}
                 <div className="text-center mb-16">
@@ -61,6 +61,9 @@ export const DogGallery = () => {
                                     <img
                                         src={image}
                                         alt={`Momento RK9 ${index + 1}`}
+                                        width={400}
+                                        height={300}
+                                        loading="lazy"
                                         className="w-full h-full object-cover rounded-xl transition-transform duration-500 group-hover:scale-110"
                                         draggable="false"
                                     />

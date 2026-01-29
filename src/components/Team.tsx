@@ -77,6 +77,9 @@ export const Team = () => {
                                 <img
                                     src={member.image}
                                     alt={member.name}
+                                    width={400}
+                                    height={300}
+                                    loading="lazy"
                                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                                 />
 

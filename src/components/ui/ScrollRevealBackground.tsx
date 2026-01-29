@@ -21,8 +21,12 @@ const generateElements = (count: number) => {
 };
 
 export const ScrollRevealBackground = () => {
-    // Generate 60 elements (MORE ELEMENTS)
-    const elements = React.useMemo(() => generateElements(60), []);
+    // Generate elements only on client-side to match server HTML
+    const [elements, setElements] = React.useState<ReturnType<typeof generateElements>>([]);
+
+    React.useEffect(() => {
+        setElements(generateElements(60));
+    }, []);
 
     return (
         <div className="fixed inset-0 -z-10 pointer-events-none overflow-hidden">

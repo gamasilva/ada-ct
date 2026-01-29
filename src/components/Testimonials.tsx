@@ -138,6 +138,9 @@ export const Testimonials = () => {
                                         <img
                                             src={review.image}
                                             alt={review.name}
+                                            width={48}
+                                            height={48}
+                                            loading="lazy"
                                             className="w-12 h-12 rounded-full object-cover ring-2 ring-gray-100"
                                         />
                                         <div>
