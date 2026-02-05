@@ -18,7 +18,7 @@ const services: Service[] = [
         icon: Home,
         title: "Hospedagem",
         image: "https://res.cloudinary.com/drun5ro6g/image/upload/v1769644237/Cachorrada_linda_da_turminha_de_quinta-feira_wcmoyo.jpg",
-        details: "5 estrelas com quartos individuais e climatizados. Monitoramento 24h. Obrigatório: Vacinas V10/V8 + Antirrábica e proteção contra pulgas.",
+        details: "Espaço amplo de recreação com dormitórios individuais. Obrigatório: Vacinas V10/V8 + Antirrábica e Proteção contra parasitas.",
         whatsappMessage: "Olá! Gostaria de fazer uma reserva de Hospedagem."
     },
     {
@@ -26,7 +26,7 @@ const services: Service[] = [
         icon: Sun,
         title: "Day Care",
         image: "https://res.cloudinary.com/drun5ro6g/image/upload/v1769644236/Cachorrada_linda_da_turminha_de_quinta-feira_1_fu15b3.jpg",
-        details: "Socialização e gasto de energia. A solução para cães que ficam sozinhos. Enriquecimento ambiental e rotina de brincadeiras.",
+        details: "Socialização e gasto de energia. Para garantir qualidade de vida para os cães e equilíbrio na rotina familiar. (Necessário avaliação comportamental)",
         whatsappMessage: "Olá! Gostaria de saber mais sobre o Day Care."
     },
     {
@@ -34,7 +34,7 @@ const services: Service[] = [
         icon: GraduationCap,
         title: "Adestramento",
         image: "https://res.cloudinary.com/drun5ro6g/image/upload/v1769644236/Cachorrada_linda_da_turminha_de_quinta-feira_2_gagajn.jpg",
-        details: "Correção comportamental e obediência. Metodologia positiva para filhotes e adultos. Aulas presenciais ou Board & Train.",
+        details: "Metodologia motivacional através do adestramento inteligente. Trabalhamos correção comportamental, obediência, guarda e proteção e Faro.",
         whatsappMessage: "Olá! Gostaria de agendar uma aula de Adestramento."
     },
     {
@@ -42,7 +42,7 @@ const services: Service[] = [
         icon: Users,
         title: "Consultoria",
         image: "https://res.cloudinary.com/drun5ro6g/image/upload/v1769644236/Cachorrada_linda_da_turminha_de_quinta-feira_3_umnwbh.jpg",
-        details: "Primeiros passos para tutores. Escolha do filhote, adaptação do lar e introdução a outros pets.",
+        details: "Primeiro passo para os tutores. Entendendo a linguagem dos cães, escolha do filhote, adaptação do lar, higiene e correção comportamental.",
         whatsappMessage: "Olá! Gostaria de agendar uma Consultoria."
     }
 ];

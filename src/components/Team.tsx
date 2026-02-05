@@ -9,6 +9,7 @@ interface TeamMember {
     image: string; // REPLACE WITH ACTUAL CLOUDINARY URL
     bio: string;
     badge: string;
+    specializations?: string[];
 }
 
 const team: TeamMember[] = [
@@ -17,8 +18,20 @@ const team: TeamMember[] = [
         name: 'Michel Romeiro',
         role: 'Adestrador Chefe & Comportamentalista',
         image: '/team-romeiro.jpg',
-        bio: 'Especialista em modificação comportamental e obediência avançada. Dedicado a transformar a relação entre cães e tutores com técnica e respeito.',
-        badge: 'Certificação Profissional'
+        bio: 'Dedicado a transformar a relação entre cães e donos com técnica e respeito, aliando conhecimento teórico e prática avançada.',
+        badge: 'Certificação Profissional',
+        specializations: [
+            "Modificação Comportamental",
+            "Obediência Avançada",
+            "Cinotecnia Policial",
+            "Cães Farejadores",
+            "Cães de Rastreamento",
+            "Guarda e Proteção",
+            "E-Collar",
+            "Obediência para Proteção",
+            "Aprendizado Canino",
+            "APH K9"
+        ]
     },
     {
         id: 'monitora',
@@ -55,7 +68,7 @@ export const Team = () => {
                 </div>
 
                 {/* Team Grid - Large Vertical Cards */}
-                <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
                     {team.map((member, index) => (
                         <motion.div
                             key={member.id}
@@ -67,59 +80,77 @@ export const Team = () => {
                                 y: -8,
                                 transition: { duration: 0.3 }
                             }}
-                            className="group relative bg-white rounded-2xl overflow-hidden border-2 border-gray-100 hover:border-green-500 transition-all duration-500 shadow-lg hover:shadow-2xl"
+                            className="group relative bg-white rounded-3xl overflow-hidden border border-gray-100 hover:border-green-500/50 transition-all duration-500 shadow-xl hover:shadow-2xl flex flex-col h-full"
                         >
                             {/* Decorative Gold Corner Accent */}
-                            <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-yellow-500/20 to-transparent -z-0" />
+                            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-yellow-500/10 to-transparent -z-0" />
 
                             {/* Professional Photo */}
-                            <div className="relative aspect-[4/3] overflow-hidden bg-gray-100">
+                            <div className="relative aspect-[4/3] overflow-hidden bg-gray-100 shrink-0">
                                 <img
                                     src={member.image}
                                     alt={member.name}
                                     width={400}
                                     height={300}
-                                    sizes="(max-width: 768px) 100vw, 400px"
+                                    sizes="(max-width: 768px) 100vw, 600px"
                                     loading="lazy"
                                     decoding="async"
-                                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                                 />
 
                                 {/* Verified Badge Overlay */}
-                                <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-lg flex items-center gap-2">
+                                <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-lg flex items-center gap-2 z-10">
                                     <CheckCircle2 size={16} className="text-green-600" strokeWidth={3} />
                                     <span className="text-xs font-bold text-gray-900">Verificado</span>
                                 </div>
                             </div>
 
                             {/* Professional Info Card */}
-                            <div className="p-8 relative">
+                            <div className="p-8 relative flex-grow flex flex-col">
                                 {/* Name */}
                                 <h3 className="text-2xl md:text-3xl font-black text-green-900 mb-2 tracking-tight">
                                     {member.name}
                                 </h3>
 
                                 {/* Role */}
-                                <p className="text-yellow-600 font-bold text-sm uppercase tracking-widest mb-4 flex items-center gap-2">
+                                <p className="text-yellow-600 font-bold text-sm uppercase tracking-widest mb-6 flex items-center gap-2">
                                     <Award size={16} strokeWidth={2.5} />
                                     {member.role}
                                 </p>
 
                                 {/* Bio */}
-                                <p className="text-gray-600 leading-relaxed mb-6">
+                                <p className="text-gray-600 leading-relaxed mb-8">
                                     {member.bio}
                                 </p>
 
-                                {/* Credential Badge */}
-                                <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-yellow-50 to-yellow-100 border border-yellow-200 rounded-xl">
-                                    <Heart size={16} className="text-yellow-600" fill="currentColor" />
-                                    <span className="text-sm font-semibold text-gray-800">
-                                        {member.badge}
-                                    </span>
-                                </div>
+                                {/* Specializations Tags (If available) */}
+                                {member.specializations && (
+                                    <div className="mb-8">
+                                        <p className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-3">
+                                            Especializações & Cursos
+                                        </p>
+                                        <div className="flex flex-wrap gap-2">
+                                            {member.specializations.map((spec, i) => (
+                                                <span
+                                                    key={i}
+                                                    className="inline-flex items-center px-3 py-1.5 rounded-lg bg-green-50 text-green-800 text-xs font-bold border border-green-100 hover:bg-green-100 hover:border-green-300 transition-colors cursor-default"
+                                                >
+                                                    {spec}
+                                                </span>
+                                            ))}
+                                        </div>
+                                    </div>
+                                )}
 
-                                {/* Hover Glow Effect */}
-                                <div className="absolute inset-0 bg-gradient-to-t from-yellow-500/0 via-yellow-500/0 to-yellow-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-b-2xl" />
+                                {/* Credential Badge (Pushed to bottom) */}
+                                <div className="mt-auto pt-6 border-t border-gray-100">
+                                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-yellow-50 to-yellow-100 border border-yellow-200 rounded-xl w-full justify-center">
+                                        <Heart size={16} className="text-yellow-600" fill="currentColor" />
+                                        <span className="text-sm font-semibold text-gray-800">
+                                            {member.badge}
+                                        </span>
+                                    </div>
+                                </div>
                             </div>
                         </motion.div>
                     ))}

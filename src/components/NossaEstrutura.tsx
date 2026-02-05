@@ -3,20 +3,20 @@ import { motion } from 'framer-motion';
 
 const structureItems = [
     {
-        title: "Suítes de Descanso Climatizadas",
+        title: "Dormitórios Individuais",
         description: "Baias individuais, higienizadas e com temperatura controlada para uma noite de sono tranquila e segura.",
         image: "https://images.unsplash.com/photo-1597633425046-08f5110420b5?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", // Indoor comfort/bed
         alt: "Cão dormindo confortavelmente"
     },
     {
-        title: "Ampla Área Verde de Lazer",
-        description: "Milhares de metros quadrados de gramado cercado para corridas, brincadeiras e gasto de energia supervisionado.",
+        title: "Ampla Área de Lazer",
+        description: "Com uma área total de 600m² com divisórias para separação dos cães por porte e temperamento. Aliando segurança e diversão.",
         image: "https://images.unsplash.com/photo-1534361960057-19889db9621e?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", // Wide grassy field
         alt: "Cães correndo na grama"
     },
     {
-        title: "Pista de Treinamento e Agility",
-        description: "Estrutura profissional completa para exercícios físicos e sessões de adestramento focadas e dinâmicas.",
+        title: "PlayGround e Piscina",
+        description: "Estrutura para exercícios físicos e piscina em dias quentes e ensolarados.",
         image: "/agility-dog.png", // Agility/Training
         alt: "Cão saltando obstáculo de agility"
     },

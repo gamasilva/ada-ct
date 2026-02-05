@@ -29,7 +29,7 @@ export const Features = () => {
                 {/* Header */}
                 <div className="text-center mb-16">
                     <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4 tracking-tight">
-                        Por que a RK9 é a melhor escolha?
+                        Por que o RK9 é a melhor escolha?
                     </h2>
                     <div className="h-1.5 w-24 bg-primary mx-auto rounded-full"></div>
                 </div>

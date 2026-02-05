@@ -177,12 +177,14 @@ export const Testimonials = () => {
                             <button
                                 key={index}
                                 onClick={() => setCurrentIndex(index)}
-                                className={`h-2 rounded-full transition-all duration-300 ${index === currentIndex
+                                className="p-3 min-w-[44px] min-h-[44px] flex items-center justify-center"
+                                aria-label={`Ir para grupo ${index + 1}`}
+                            >
+                                <div className={`h-2 rounded-full transition-all duration-300 ${index === currentIndex
                                     ? 'bg-primary w-8'
                                     : 'bg-gray-300 w-2 hover:bg-gray-400'
-                                    }`}
-                                aria-label={`Ir para grupo ${index + 1}`}
-                            />
+                                    }`} />
+                            </button>
                         ))}
                     </div>
 

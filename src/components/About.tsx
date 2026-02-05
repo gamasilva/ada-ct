@@ -46,7 +46,7 @@ export const About = () => {
                         viewport={{ once: true }}
                     >
                         <div className="inline-block px-4 py-1.5 mb-6 rounded-full bg-green-100 text-green-700 font-bold text-sm tracking-wider uppercase">
-                            Sobre a RK9
+                            Sobre o RK9
                         </div>
                         <h2 className="text-3xl md:text-5xl font-black text-gray-900 mb-6 leading-tight">
                             Muito mais que um hotel, <br />
@@ -57,17 +57,21 @@ export const About = () => {
                         <p className="text-lg text-gray-600 mb-6 leading-relaxed">
                             Localizado em <strong className="text-gray-900">Anchieta, ES</strong>, o RK9 nasceu da paixão por cães aliada ao profissionalismo.
                         </p>
+                        <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+                            O nome RK9 carrega nossa essência: a união do sobrenome Romeiro com a sigla mundial K9 (canine), associada aos cães de serviço e trabalho, reforçada pela nossa experiência com cães policiais. Essa combinação representa quem somos: uma família que une conhecimento, prática e amor pelos cães.
+                        </p>
+                        <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+                            Cada atendimento é individual, respeitando a personalidade, o tempo e as necessidades de cada animal. Acreditamos na comunicação correta, na leitura comportamental e em métodos que fortalecem o vínculo entre tutor e cão.
+                        </p>
                         <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                            Diferente de hotéis comuns, aqui seu cão não fica preso: oferecemos rotina de atividades,
-                            socialização monitorada e adestramento positivo. Nossa equipe é treinada para garantir saúde,
-                            segurança e muita diversão enquanto você viaja tranquilo.
+                            A RK9 é a extensão da nossa história e da nossa missão de transformar a convivência entre pessoas e cães com dedicação, conhecimento e cuidado verdadeiro.
                         </p>
 
                         <ul className="space-y-4 mb-8">
                             {[
-                                'Monitoramento veterinário constante',
-                                'Áreas de lazer separadas por porte',
-                                'Relatórios diários para o tutor'
+                                'Monitoramento constante;',
+                                'Áreas de lazer separadas por porte;',
+                                'Relatórios diários para o tutor.'
                             ].map((item, i) => (
                                 <li key={i} className="flex items-center gap-3 text-gray-700 font-medium">
                                     <CheckCircle className="text-green-600 w-5 h-5 flex-shrink-0" />
@@ -80,7 +84,7 @@ export const About = () => {
                             href="/reservas"
                             className="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white transition-all duration-200 bg-green-600 border border-transparent rounded-full hover:bg-green-700 shadow-lg hover:shadow-green-900/30 hover:scale-105"
                         >
-                            Conhecer o Espaço
+                            Fazer Reserva
                         </a>
                     </motion.div>
                 </div>

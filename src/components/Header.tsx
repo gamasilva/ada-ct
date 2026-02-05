@@ -32,13 +32,20 @@ export const Header = () => {
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <a href="/" className="flex items-center gap-2 group">
-            <img
-              src="/logo.png"
-              alt="RK9 Logo"
-              width={48}
-              height={48}
-              className="h-12 w-auto rounded-full shadow-lg shadow-yellow-500/50 hover:scale-105 transition-all duration-300 hover:shadow-yellow-500/80 border-2 border-yellow-500/30"
-            />
+            <picture>
+              <source
+                srcSet="/logo-48.webp 1x, /logo-96.webp 2x"
+                type="image/webp"
+              />
+              <img
+                src="/logo-48.png"
+                srcSet="/logo-48.png 1x, /logo-96.png 2x"
+                alt="RK9 Logo"
+                width={48}
+                height={48}
+                className="h-12 w-auto rounded-full shadow-lg shadow-yellow-500/50 hover:scale-105 transition-all duration-300 hover:shadow-yellow-500/80 border-2 border-yellow-500/30"
+              />
+            </picture>
           </a>
 
           {/* Desktop Nav */}

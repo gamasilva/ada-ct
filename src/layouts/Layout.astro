@@ -24,25 +24,35 @@ const {
     <meta name="generator" content={Astro.generator} />
     <title>{title} | CT e Hotel RK9</title>
 
-    <!-- Google Fonts -->
+    <!-- Google Fonts with optimized loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap"
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
 
     <!-- LCP Optimization: Preload Hero Image -->
     <link
       rel="preload"
       as="image"
-      href="/hero-bg-v2.png"
+      href="/hero-bg-v2.webp"
+      type="image/webp"
       media="(min-width: 768px)"
     />
     <link
       rel="preload"
       as="image"
-      href="/hero-bg-mobile.png"
+      href="/hero-bg-mobile.webp"
+      type="image/webp"
       media="(max-width: 767px)"
     />
   </head>
