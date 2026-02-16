@@ -38,6 +38,8 @@ export const Header = () => {
                 alt="RK9 Logo"
                 width={48}
                 height={48}
+                loading="lazy"
+                decoding="async"
                 className="h-12 w-auto rounded-full shadow-lg shadow-yellow-500/50 hover:scale-105 transition-all duration-300 hover:shadow-yellow-500/80 border-2 border-yellow-500/30"
               />
             </picture>

@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { Bone } from 'lucide-react';
 import { getOptimizedImage, getResponsiveSrcSet } from '../utils/cloudinary';
 
@@ -39,37 +38,32 @@ export const DogGallery = () => {
                 </div>
             </div>
 
-            {/* Carousel Full Width */}
+            {/* Carousel Full Width — Pure CSS animation for GPU compositing */}
             <div className="w-full overflow-hidden">
-                <motion.div
-                    className="flex w-max"
-                    animate={{ x: "-50%" }}
-                    initial={{ x: 0 }}
-                    transition={{
-                        duration: 60, // Slower speed for better viewing
-                        ease: "linear",
-                        repeat: Infinity
+                <div
+                    className="flex w-max gallery-scroll"
+                    style={{
+                        willChange: 'transform',
                     }}
                 >
                     {carouselImages.map((image, index) => (
-                        <div key={index} className="pr-8 flex-shrink-0">
-                            <div className="min-w-[300px] md:min-w-[400px] h-[300px] relative group">
+                        <div key={index} className="pr-6 md:pr-8 flex-shrink-0">
+                            <div className="min-w-[260px] md:min-w-[400px] h-[240px] md:h-[300px] relative group">
                                 {/* Treat Frame */}
-                                <div className="absolute inset-0 border-4 border-yellow-400 rounded-3xl z-20 pointer-events-none group-hover:border-yellow-500 transition-colors duration-300"></div>
-
-
+                                <div className="absolute inset-0 border-4 border-yellow-400 rounded-3xl z-20 pointer-events-none"></div>
 
                                 {/* Image */}
                                 <div className="w-full h-full rounded-2xl overflow-hidden relative z-10 p-1 bg-white">
                                     <img
                                         src={getOptimizedImage(image, 600)}
-                                        srcSet={getResponsiveSrcSet(image, [400, 600, 800])}
-                                        sizes="(max-width: 768px) 300px, 400px"
-                                        alt={`Momento RK9 ${index + 1}`}
+                                        srcSet={getResponsiveSrcSet(image, [400, 600])}
+                                        sizes="(max-width: 768px) 260px, 400px"
+                                        alt={`Momento RK9 ${(index % galleryImages.length) + 1}`}
                                         width={400}
                                         height={300}
                                         loading="lazy"
-                                        className="w-full h-full object-cover rounded-xl transition-transform duration-500 group-hover:scale-110"
+                                        decoding="async"
+                                        className="w-full h-full object-cover rounded-xl"
                                         style={{
                                             objectPosition: image.includes('(3)') ? 'center 15%' :
                                                 image.endsWith('at 13.40.16.webp') ? 'center 20%' :
@@ -81,8 +75,24 @@ export const DogGallery = () => {
                             </div>
                         </div>
                     ))}
-                </motion.div>
+                </div>
             </div>
+
+            {/* Pure CSS animation — runs on GPU compositor, no JS thread blocking */}
+            <style>{`
+                @keyframes gallery-scroll {
+                    0% { transform: translate3d(0, 0, 0); }
+                    100% { transform: translate3d(-50%, 0, 0); }
+                }
+                .gallery-scroll {
+                    animation: gallery-scroll 50s linear infinite;
+                }
+                @media (prefers-reduced-motion: reduce) {
+                    .gallery-scroll {
+                        animation: none;
+                    }
+                }
+            `}</style>
         </section>
     );
 };

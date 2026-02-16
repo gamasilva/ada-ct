@@ -73,6 +73,10 @@ const AutoCarousel = ({ images, alt }: { images: string[], alt: string }) => {
                     key={currentIndex}
                     src={images[currentIndex]}
                     alt={alt}
+                    width={800}
+                    height={600}
+                    loading="lazy"
+                    decoding="async"
                     initial={{ opacity: 0, scale: 1.1 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0 }}
@@ -222,6 +226,8 @@ export const NossaEstrutura = () => {
                                 loop
                                 muted
                                 playsInline
+                                width={360}
+                                height={640}
                                 className="w-full h-full object-cover"
                             />
                             {/* Decorative Glass Effect Overlay */}

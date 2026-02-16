@@ -17,6 +17,7 @@ export const Footer = () => {
                                 width={64}
                                 height={64}
                                 loading="lazy"
+                                decoding="async"
                                 className="h-16 w-auto rounded-full shadow-lg shadow-yellow-500/20 border-2 border-yellow-500/20"
                             />
                             <div>

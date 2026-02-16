@@ -25,6 +25,7 @@ export const About = () => {
                                 width={600}
                                 height={800}
                                 loading="lazy"
+                                decoding="async"
                                 className="w-full aspect-[3/4] object-cover"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-8">
