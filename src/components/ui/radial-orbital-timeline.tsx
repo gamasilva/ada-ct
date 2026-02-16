@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Badge } from "./badge";
 import { Card, CardContent, CardHeader, CardTitle } from "./card";
 
@@ -24,10 +25,26 @@ export default function RadialOrbitalTimeline({ timelineData }: RadialOrbitalTim
     const [autoRotate, setAutoRotate] = useState<boolean>(true);
     const [pulseEffect, setPulseEffect] = useState<Record<number, boolean>>({});
     const [activeNodeId, setActiveNodeId] = useState<number | null>(null);
+    const [isMobile, setIsMobile] = useState<boolean>(false);
 
     const containerRef = useRef<HTMLDivElement>(null);
     const orbitRef = useRef<HTMLDivElement>(null);
     const nodeRefs = useRef<Record<number, HTMLDivElement | null>>({});
+
+    // Detect mobile
+    useEffect(() => {
+        const checkMobile = () => setIsMobile(window.innerWidth < 768);
+        checkMobile();
+        window.addEventListener("resize", checkMobile);
+        return () => window.removeEventListener("resize", checkMobile);
+    }, []);
+
+    const orbitRadius = isMobile ? 120 : 200;
+    const nodeSize = isMobile ? "w-16 h-16" : "w-24 h-24";
+    const iconSize = isMobile ? 28 : 44;
+    const labelTop = isMobile ? "top-20" : "top-28";
+    const centralSize = isMobile ? "w-16 h-16" : "w-24 h-24";
+    const centralEmoji = isMobile ? "text-2xl" : "text-4xl";
 
     const handleContainerClick = (e: React.MouseEvent<HTMLDivElement>) => {
         if (e.target === containerRef.current || e.target === orbitRef.current) {
@@ -87,8 +104,8 @@ export default function RadialOrbitalTimeline({ timelineData }: RadialOrbitalTim
         const angle = ((index / total) * 360 + rotationAngle) % 360;
         const radian = (angle * Math.PI) / 180;
         return {
-            x: 200 * Math.cos(radian),
-            y: 200 * Math.sin(radian),
+            x: orbitRadius * Math.cos(radian),
+            y: orbitRadius * Math.sin(radian),
             angle,
             zIndex: Math.round(100 + 50 * Math.cos(radian)),
             opacity: 1,
@@ -110,8 +127,8 @@ export default function RadialOrbitalTimeline({ timelineData }: RadialOrbitalTim
 
     return (
         <div
-            className="w-full flex flex-col items-center justify-center overflow-hidden relative"
-            style={{ height: "700px" }}
+            className="w-full flex flex-col items-center justify-center relative"
+            style={{ height: isMobile ? "500px" : "700px", overflow: "visible" }}
             ref={containerRef}
             onClick={handleContainerClick}
         >
@@ -122,18 +139,24 @@ export default function RadialOrbitalTimeline({ timelineData }: RadialOrbitalTim
                     style={{ perspective: "1000px" }}
                 >
                     {/* Central Orb — Paw Print */}
-                    <div className="absolute w-24 h-24 rounded-full bg-gradient-to-br from-green-500 via-green-700 to-green-900 flex items-center justify-center z-10 shadow-2xl shadow-green-500/30">
-                        <div className="absolute w-28 h-28 rounded-full border-2 border-green-400/30 animate-ping opacity-60"></div>
+                    <div className={`absolute ${centralSize} rounded-full bg-gradient-to-br from-green-500 via-green-700 to-green-900 flex items-center justify-center z-10 shadow-2xl shadow-green-500/30`}>
+                        <div className={`absolute ${isMobile ? "w-20 h-20" : "w-28 h-28"} rounded-full border-2 border-green-400/30 animate-ping opacity-60`}></div>
                         <div
-                            className="absolute w-32 h-32 rounded-full border border-green-400/20 animate-ping opacity-40"
+                            className={`absolute ${isMobile ? "w-24 h-24" : "w-32 h-32"} rounded-full border border-green-400/20 animate-ping opacity-40`}
                             style={{ animationDelay: "0.5s" }}
                         ></div>
-                        <span className="text-4xl filter drop-shadow-lg">🐾</span>
+                        <span className={`${centralEmoji} filter drop-shadow-lg`}>🐾</span>
                     </div>
 
                     {/* Orbit Ring */}
-                    <div className="absolute w-96 h-96 rounded-full border border-green-200/20"></div>
-                    <div className="absolute w-[26rem] h-[26rem] rounded-full border border-dashed border-green-200/10"></div>
+                    <div
+                        className="absolute rounded-full border border-green-200/20"
+                        style={{ width: `${orbitRadius * 2}px`, height: `${orbitRadius * 2}px` }}
+                    ></div>
+                    <div
+                        className="absolute rounded-full border border-dashed border-green-200/10"
+                        style={{ width: `${orbitRadius * 2 + 32}px`, height: `${orbitRadius * 2 + 32}px` }}
+                    ></div>
 
                     {/* Nodes */}
                     {timelineData.map((item, index) => {
@@ -164,28 +187,29 @@ export default function RadialOrbitalTimeline({ timelineData }: RadialOrbitalTim
                                     className={`absolute rounded-full -inset-1 ${pulseEffect[item.id] ? "animate-pulse" : ""}`}
                                     style={{
                                         background: `radial-gradient(circle, rgba(101, 163, 13, 0.25) 0%, rgba(101, 163, 13, 0) 70%)`,
-                                        width: "60px",
-                                        height: "60px",
-                                        left: "-10px",
-                                        top: "-10px",
+                                        width: isMobile ? "40px" : "60px",
+                                        height: isMobile ? "40px" : "60px",
+                                        left: isMobile ? "-4px" : "-10px",
+                                        top: isMobile ? "-4px" : "-10px",
                                     }}
                                 ></div>
 
                                 {/* Node Icon */}
                                 <div
-                                    className={`w-24 h-24 rounded-full flex items-center justify-center border-4 transition-all duration-300 transform ${isExpanded
-                                            ? "bg-yellow-400 text-green-900 border-yellow-300 shadow-2xl shadow-yellow-500/50 scale-125"
-                                            : isRelated
-                                                ? "bg-yellow-400 text-green-900 border-green-400 animate-pulse"
-                                                : "bg-green-800 text-yellow-400 border-green-700 shadow-xl"
+                                    className={`${nodeSize} rounded-full flex items-center justify-center border-4 transition-all duration-300 transform ${isExpanded
+                                        ? "bg-yellow-400 text-green-900 border-yellow-300 shadow-2xl shadow-yellow-500/50 scale-125"
+                                        : isRelated
+                                            ? "bg-yellow-400 text-green-900 border-green-400 animate-pulse"
+                                            : "bg-green-800 text-yellow-400 border-green-700 shadow-xl"
                                         }`}
                                 >
-                                    <Icon size={44} strokeWidth={2.5} />
+                                    <Icon size={iconSize} strokeWidth={2.5} />
                                 </div>
 
                                 {/* Node Label */}
                                 <div
-                                    className={`absolute top-28 left-1/2 -translate-x-1/2 whitespace-nowrap text-sm font-black uppercase tracking-widest transition-all duration-300 ${isExpanded ? "text-green-800 scale-110" : "text-green-900 drop-shadow-sm"
+                                    className={`absolute ${labelTop} left-1/2 -translate-x-1/2 whitespace-nowrap font-black uppercase tracking-widest transition-all duration-300 ${isMobile ? "text-[10px]" : "text-sm"
+                                        } ${isExpanded ? "text-green-800 scale-110" : "text-green-900 drop-shadow-sm"
                                         }`}
                                 >
                                     {item.title}
@@ -193,13 +217,16 @@ export default function RadialOrbitalTimeline({ timelineData }: RadialOrbitalTim
 
                                 {/* Expanded Card — Large & Informative */}
                                 {isExpanded && (
-                                    <Card className="absolute top-20 left-1/2 -translate-x-1/2 w-80 bg-white/98 backdrop-blur-lg border-green-500/30 shadow-2xl shadow-green-900/20 overflow-visible rounded-2xl">
+                                    <Card
+                                        className={`absolute left-1/2 -translate-x-1/2 bg-white/98 backdrop-blur-lg border-green-500/30 shadow-2xl shadow-green-900/20 overflow-visible rounded-2xl ${isMobile ? "w-72 top-24" : "w-80 top-36"
+                                            }`}
+                                    >
                                         {/* Connector Line */}
                                         <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-px h-4 bg-gradient-to-b from-transparent to-green-400"></div>
 
-                                        <CardHeader className="pb-3 pt-5 px-5">
+                                        <CardHeader className={`pb-3 ${isMobile ? "pt-4 px-4" : "pt-5 px-5"}`}>
                                             <div className="flex items-center gap-3 mb-3">
-                                                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-green-600 to-green-800 flex items-center justify-center shadow-lg">
+                                                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-green-600 to-green-800 flex items-center justify-center shadow-lg flex-shrink-0">
                                                     <Icon size={20} className="text-white" />
                                                 </div>
                                                 <div>
@@ -214,20 +241,23 @@ export default function RadialOrbitalTimeline({ timelineData }: RadialOrbitalTim
                                             </Badge>
                                         </CardHeader>
 
-                                        <CardContent className="px-5 pb-5">
+                                        <CardContent className={`${isMobile ? "px-4 pb-4" : "px-5 pb-5"}`}>
                                             {/* Description */}
-                                            <p className="text-sm text-gray-600 leading-relaxed mb-5">{item.content}</p>
+                                            <p className={`text-gray-600 leading-relaxed mb-5 ${isMobile ? "text-xs" : "text-sm"}`}>
+                                                {item.content}
+                                            </p>
 
                                             {/* Tags */}
                                             <div className="pt-4 border-t border-gray-100">
                                                 <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-3">
                                                     O que inclui
                                                 </p>
-                                                <div className="flex flex-wrap gap-2">
+                                                <div className="flex flex-wrap gap-1.5">
                                                     {item.tags.map((tag, idx) => (
                                                         <span
                                                             key={idx}
-                                                            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-green-50 text-green-800 text-[11px] font-bold border border-green-100 hover:bg-green-100 hover:border-green-300 transition-colors cursor-default"
+                                                            className={`inline-flex items-center gap-1.5 rounded-lg bg-green-50 text-green-800 font-bold border border-green-100 cursor-default ${isMobile ? "px-2 py-1 text-[10px]" : "px-3 py-1.5 text-[11px]"
+                                                                }`}
                                                         >
                                                             <span className="w-1.5 h-1.5 rounded-full bg-green-500"></span>
                                                             {tag}
@@ -235,6 +265,41 @@ export default function RadialOrbitalTimeline({ timelineData }: RadialOrbitalTim
                                                     ))}
                                                 </div>
                                             </div>
+
+                                            {/* Mobile Navigation Arrows */}
+                                            {isMobile && (
+                                                <div className="flex items-center justify-between mt-5 pt-4 border-t border-gray-100">
+                                                    <button
+                                                        onClick={(e) => {
+                                                            e.stopPropagation();
+                                                            const currentIndex = timelineData.findIndex((i) => i.id === item.id);
+                                                            const prevIndex = (currentIndex - 1 + timelineData.length) % timelineData.length;
+                                                            toggleItem(timelineData[prevIndex].id);
+                                                        }}
+                                                        className="flex items-center gap-1 px-3 py-2 rounded-xl bg-green-100 text-green-800 font-bold text-xs hover:bg-green-200 transition-colors active:scale-95"
+                                                        aria-label="Serviço anterior"
+                                                    >
+                                                        <ChevronLeft size={16} />
+                                                        Anterior
+                                                    </button>
+                                                    <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">
+                                                        {timelineData.findIndex((i) => i.id === item.id) + 1} / {timelineData.length}
+                                                    </span>
+                                                    <button
+                                                        onClick={(e) => {
+                                                            e.stopPropagation();
+                                                            const currentIndex = timelineData.findIndex((i) => i.id === item.id);
+                                                            const nextIndex = (currentIndex + 1) % timelineData.length;
+                                                            toggleItem(timelineData[nextIndex].id);
+                                                        }}
+                                                        className="flex items-center gap-1 px-3 py-2 rounded-xl bg-green-700 text-white font-bold text-xs hover:bg-green-800 transition-colors active:scale-95"
+                                                        aria-label="Próximo serviço"
+                                                    >
+                                                        Próximo
+                                                        <ChevronRight size={16} />
+                                                    </button>
+                                                </div>
+                                            )}
                                         </CardContent>
                                     </Card>
                                 )}
