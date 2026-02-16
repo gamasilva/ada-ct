@@ -154,10 +154,10 @@ const StructureSection = ({ item, index }: { item: StructureItem, index: number 
 
 export const NossaEstrutura = () => {
     return (
-        <section id="estrutura" className="py-24 bg-white relative overflow-hidden font-sans">
+        <section id="estrutura" className="py-24 relative overflow-hidden font-sans">
             {/* Background Decoration */}
-            <div className="absolute top-0 right-0 w-1/3 h-full bg-green-50/50 -skew-x-12 translate-x-1/2 pointer-events-none" />
-            <div className="absolute bottom-0 left-0 w-1/3 h-full bg-yellow-50/30 -skew-x-12 -translate-x-1/2 pointer-events-none" />
+            <div className="absolute top-0 right-0 w-1/3 h-full bg-green-50/20 -skew-x-12 translate-x-1/2 pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-1/3 h-full bg-yellow-50/10 -skew-x-12 -translate-x-1/2 pointer-events-none" />
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 {/* Header Content with Split Layout */}

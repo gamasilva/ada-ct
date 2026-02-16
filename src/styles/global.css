@@ -14,3 +14,12 @@ body {
   scroll-behavior: smooth;
   overflow-x: hidden;
 }
+
+/* Radial Orbital Timeline Animations */
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+@keyframes ping {
+  75%, 100% { transform: scale(2); opacity: 0; }
+}

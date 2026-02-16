@@ -1,0 +1,27 @@
+---
+import "../styles/global.css";
+import ServicesTimelineDemo from "../components/ServicesTimelineDemo";
+
+const title = "Demo - Serviços Timeline";
+const description = "Demonstração da Timeline Orbital de Serviços Caninos";
+---
+
+<!doctype html>
+<html lang="pt-BR" class="scroll-smooth">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="description" content={description} />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <title>{title} | CT e Hotel RK9</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+    <body class="font-[Inter] bg-stone-900 overflow-x-hidden">
+        <ServicesTimelineDemo client:load />
+    </body>
+</html>
