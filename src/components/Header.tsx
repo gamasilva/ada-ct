@@ -33,13 +33,8 @@ export const Header = () => {
           {/* Logo */}
           <a href="/" className="flex items-center gap-2 group">
             <picture>
-              <source
-                srcSet="/logo-48.webp 1x, /logo-96.webp 2x"
-                type="image/webp"
-              />
               <img
-                src="/logo-48.png"
-                srcSet="/logo-48.png 1x, /logo-96.png 2x"
+                src="/logo-48.webp"
                 alt="RK9 Logo"
                 width={48}
                 height={48}

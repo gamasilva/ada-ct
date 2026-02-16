@@ -12,7 +12,7 @@ export const Footer = () => {
                         {/* Logo */}
                         <div className="flex items-center gap-4">
                             <img
-                                src="/logo.png"
+                                src="/logo-96.webp"
                                 alt="RK9 CSS Logo"
                                 width={64}
                                 height={64}
@@ -128,9 +128,14 @@ export const Footer = () => {
                 {/* Bottom Bar */}
                 <div className="border-t border-green-600/50 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-green-200/60">
                     <p>&copy; 2026 RK9 CT e Hotel. Todos os direitos reservados.</p>
-                    <p className="flex items-center gap-1.5 transition-colors hover:text-green-200">
+                    <a
+                        href="https://www.autosocialflow.com.br/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-1.5 transition-colors hover:text-green-200"
+                    >
                         Desenvolvido por <span className="text-yellow-300 font-bold tracking-wide">Auto Social Flow</span>
-                    </p>
+                    </a>
                 </div>
             </div>
         </footer>

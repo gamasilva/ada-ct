@@ -1,25 +1,26 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { Bone } from 'lucide-react';
 import { getOptimizedImage, getResponsiveSrcSet } from '../utils/cloudinary';
 
 const galleryImages = [
-    "https://res.cloudinary.com/drun5ro6g/image/upload/v1769644237/Cachorrada_linda_da_turminha_de_quinta-feira_wcmoyo.jpg",
-    "https://res.cloudinary.com/drun5ro6g/image/upload/v1769644236/Cachorrada_linda_da_turminha_de_quinta-feira_1_fu15b3.jpg",
-    "https://res.cloudinary.com/drun5ro6g/image/upload/v1769642928/Hoje_nossa_mascote_e_funcion%C3%A1ria_do_m%C3%AAs_completa_8_aninhos_Parab%C3%A9ns_Akirinha_srlvzc.jpg",
-    "https://res.cloudinary.com/drun5ro6g/image/upload/v1769642928/O_que_os_c%C3%A3es_nos_ensinam1._Ame_incondicionalmenteCachorros_amam_incondicionalmente._Eles_abanam_1_svu8ru.jpg",
-    "https://res.cloudinary.com/drun5ro6g/image/upload/v1769642928/O_que_os_c%C3%A3es_nos_ensinam1._Ame_incondicionalmenteCachorros_amam_incondicionalmente._Eles_abanam_de7tpg.jpg"
+    "/images/dog-gallery/WhatsApp Image 2026-02-16 at 13.22.04.webp",
+    "/images/dog-gallery/WhatsApp Image 2026-02-16 at 13.40.16 (1).webp",
+    "/images/dog-gallery/WhatsApp Image 2026-02-16 at 13.40.16 (2).webp",
+    "/images/dog-gallery/WhatsApp Image 2026-02-16 at 13.40.16 (3).webp",
+    "/images/dog-gallery/WhatsApp Image 2026-02-16 at 13.40.16 (4).webp",
+    "/images/dog-gallery/WhatsApp Image 2026-02-16 at 13.40.16 (6).webp",
+    "/images/dog-gallery/WhatsApp Image 2026-02-16 at 13.40.16 (7).webp",
+    "/images/dog-gallery/WhatsApp Image 2026-02-16 at 13.40.16.webp",
+    "/images/dog-gallery/WhatsApp Image 2026-02-16 at 13.48.42 (2).webp",
+    "/images/dog-gallery/WhatsApp Image 2026-02-16 at 13.48.42.webp",
+    "/images/dog-gallery/WhatsApp Image 2026-02-16 at 13.48.43 (1).webp",
+    "/images/dog-gallery/WhatsApp Image 2026-02-16 at 13.48.45.webp"
 ];
 
 export const DogGallery = () => {
-    const [width, setWidth] = useState(0);
-    const carouselRef = useRef<HTMLDivElement>(null);
-
-    useEffect(() => {
-        if (carouselRef.current) {
-            setWidth(carouselRef.current.scrollWidth - carouselRef.current.offsetWidth);
-        }
-    }, []);
+    // Duplicate images for seamless loop
+    const carouselImages = [...galleryImages, ...galleryImages];
 
     return (
         <section id="dog-gallery" className="py-24 bg-white/60 backdrop-blur-sm relative z-10 overflow-hidden">
@@ -36,26 +37,27 @@ export const DogGallery = () => {
                         Momentos de fofura e diversão
                     </h2>
                 </div>
+            </div>
 
-                {/* Carousel */}
-                <motion.div ref={carouselRef} className="cursor-grab active:cursor-grabbing overflow-hidden">
-                    <motion.div
-                        drag="x"
-                        dragConstraints={{ right: 0, left: -width }}
-                        className="flex gap-8"
-                    >
-                        {galleryImages.map((image, index) => (
-                            <motion.div
-                                key={index}
-                                className="min-w-[300px] md:min-w-[400px] h-[300px] relative group"
-                            >
+            {/* Carousel Full Width */}
+            <div className="w-full overflow-hidden">
+                <motion.div
+                    className="flex w-max"
+                    animate={{ x: "-50%" }}
+                    initial={{ x: 0 }}
+                    transition={{
+                        duration: 60, // Slower speed for better viewing
+                        ease: "linear",
+                        repeat: Infinity
+                    }}
+                >
+                    {carouselImages.map((image, index) => (
+                        <div key={index} className="pr-8 flex-shrink-0">
+                            <div className="min-w-[300px] md:min-w-[400px] h-[300px] relative group">
                                 {/* Treat Frame */}
                                 <div className="absolute inset-0 border-4 border-yellow-400 rounded-3xl z-20 pointer-events-none group-hover:border-yellow-500 transition-colors duration-300"></div>
 
-                                {/* Decorative Bones */}
-                                <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-30 bg-white px-2">
-                                    <Bone size={24} className="text-yellow-500 fill-yellow-100" />
-                                </div>
+
 
                                 {/* Image */}
                                 <div className="w-full h-full rounded-2xl overflow-hidden relative z-10 p-1 bg-white">
@@ -68,18 +70,18 @@ export const DogGallery = () => {
                                         height={300}
                                         loading="lazy"
                                         className="w-full h-full object-cover rounded-xl transition-transform duration-500 group-hover:scale-110"
+                                        style={{
+                                            objectPosition: image.includes('(3)') ? 'center 15%' :
+                                                image.endsWith('at 13.40.16.webp') ? 'center 20%' :
+                                                    'center'
+                                        }}
                                         draggable="false"
                                     />
                                 </div>
-                            </motion.div>
-                        ))}
-                    </motion.div>
+                            </div>
+                        </div>
+                    ))}
                 </motion.div>
-
-                <p className="text-center text-gray-600 mt-8 text-sm flex items-center justify-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-yellow-400 animate-pulse"></span>
-                    Arraste para ver mais
-                </p>
             </div>
         </section>
     );

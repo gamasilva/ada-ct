@@ -12,12 +12,13 @@ interface TeamMember {
     specializations?: string[];
 }
 
+// --- Data ---
 const team: TeamMember[] = [
     {
         id: 'romeiro',
         name: 'Michel Romeiro',
         role: 'Adestrador Chefe & Comportamentalista',
-        image: '/team-romeiro.jpg',
+        image: '/team-romeiro.webp',
         bio: 'Dedicado a transformar a relação entre cães e donos com técnica e respeito, aliando conhecimento teórico e prática avançada.',
         badge: 'Certificação Profissional',
         specializations: [
@@ -37,9 +38,30 @@ const team: TeamMember[] = [
         id: 'monitora',
         name: 'Ada Romeiro',
         role: 'Coordenadora de Bem-Estar & Recreação',
-        image: '/team-monitora.jpg',
+        image: '/team-monitora.webp',
         bio: 'Responsável pelo enriquecimento ambiental e socialização segura. Seu olhar atento garante que cada cão se divirta com segurança total.',
-        badge: 'Especialista em Comportamento de Matilha'
+        badge: 'Especialista em Comportamento de Matilha- Adestradora',
+        specializations: [
+            "Psicologia Canina",
+            "Avaliação Comportamental",
+            "Manejo e Contenção de cães",
+            "Obediência Canina",
+            "Atendimento pré hospitalar canino",
+            "Workshop de Guarda Residencial com cães"
+        ]
+    },
+    {
+        id: 'kaike',
+        name: 'Kaike',
+        role: 'Monitor',
+        image: '/images/dog-gallery/WhatsApp Image 2026-02-16 at 13.40.16 (1).webp',
+        bio: 'Monitor dedicado e apaixonado por cães, sempre atento às necessidades individuais de cada pet durante a recreação.',
+        badge: 'Monitor de Pátio',
+        specializations: [
+            "Recreação Canina",
+            "Monitoramento de Grupo",
+            "Primeiros Socorros Básicos"
+        ]
     }
 ];
 
@@ -67,8 +89,8 @@ export const Team = () => {
                     </p>
                 </div>
 
-                {/* Team Grid - Large Vertical Cards */}
-                <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+                {/* Team Grid - Compact Cards */}
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
                     {team.map((member, index) => (
                         <motion.div
                             key={member.id}
@@ -82,17 +104,15 @@ export const Team = () => {
                             }}
                             className="group relative bg-white rounded-3xl overflow-hidden border border-gray-100 hover:border-green-500/50 transition-all duration-500 shadow-xl hover:shadow-2xl flex flex-col h-full"
                         >
-                            {/* Decorative Gold Corner Accent */}
-                            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-yellow-500/10 to-transparent -z-0" />
 
                             {/* Professional Photo */}
-                            <div className="relative aspect-[4/3] overflow-hidden bg-gray-100 shrink-0">
+                            <div className="relative aspect-square overflow-hidden bg-gray-100 shrink-0">
                                 <img
                                     src={member.image}
                                     alt={member.name}
                                     width={400}
-                                    height={300}
-                                    sizes="(max-width: 768px) 100vw, 600px"
+                                    height={400}
+                                    sizes="(max-width: 768px) 100vw, 350px"
                                     loading="lazy"
                                     decoding="async"
                                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
@@ -106,34 +126,34 @@ export const Team = () => {
                             </div>
 
                             {/* Professional Info Card */}
-                            <div className="p-8 relative flex-grow flex flex-col">
+                            <div className="p-6 relative flex-grow flex flex-col">
                                 {/* Name */}
-                                <h3 className="text-2xl md:text-3xl font-black text-green-900 mb-2 tracking-tight">
+                                <h3 className="text-xl md:text-2xl font-black text-green-900 mb-1 tracking-tight">
                                     {member.name}
                                 </h3>
 
                                 {/* Role */}
-                                <p className="text-yellow-600 font-bold text-sm uppercase tracking-widest mb-6 flex items-center gap-2">
-                                    <Award size={16} strokeWidth={2.5} />
+                                <p className="text-yellow-600 font-bold text-xs uppercase tracking-widest mb-4 flex items-center gap-2">
+                                    <Award size={14} strokeWidth={2.5} />
                                     {member.role}
                                 </p>
 
                                 {/* Bio */}
-                                <p className="text-gray-600 leading-relaxed mb-8">
+                                <p className="text-gray-600 leading-relaxed mb-6 text-sm">
                                     {member.bio}
                                 </p>
 
                                 {/* Specializations Tags (If available) */}
                                 {member.specializations && (
-                                    <div className="mb-8">
-                                        <p className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-3">
+                                    <div className="mb-6">
+                                        <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-2">
                                             Especializações & Cursos
                                         </p>
-                                        <div className="flex flex-wrap gap-2">
+                                        <div className="flex flex-wrap gap-1.5">
                                             {member.specializations.map((spec, i) => (
                                                 <span
                                                     key={i}
-                                                    className="inline-flex items-center px-3 py-1.5 rounded-lg bg-green-50 text-green-800 text-xs font-bold border border-green-100 hover:bg-green-100 hover:border-green-300 transition-colors cursor-default"
+                                                    className="inline-flex items-center px-2 py-1 rounded-md bg-green-50 text-green-800 text-[10px] font-bold border border-green-100 hover:bg-green-100 hover:border-green-300 transition-colors cursor-default"
                                                 >
                                                     {spec}
                                                 </span>
