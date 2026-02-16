@@ -105,7 +105,7 @@ export const DogGallery = () => {
                     {/* Scroll Area */}
                     <div
                         ref={scrollRef}
-                        className="flex overflow-x-auto gap-6 pb-8 snap-x snap-mandatory scrollbar-hide cursor-grab active:cursor-grabbing"
+                        className="flex overflow-x-auto gap-4 md:gap-6 pb-8 snap-x snap-mandatory scrollbar-hide cursor-grab active:cursor-grabbing px-4 md:px-0"
                         style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
                         onMouseDown={handleMouseDown}
                         onMouseLeave={handleMouseLeave}
@@ -115,9 +115,9 @@ export const DogGallery = () => {
                         {galleryImages.map((image, index) => (
                             <div
                                 key={index}
-                                className="flex-shrink-0 snap-center first:pl-4 last:pr-4 md:first:pl-0 md:last:pr-0"
+                                className="flex-shrink-0 snap-start"
                             >
-                                <div className="min-w-[280px] md:min-w-[400px] h-[280px] md:h-[400px] relative group transition-transform duration-300 hover:scale-[1.02]">
+                                <div className="w-[75vw] sm:w-[60vw] md:w-[400px] aspect-[4/3] md:h-[400px] relative group transition-transform duration-300 hover:scale-[1.02]">
                                     {/* Treat Frame */}
                                     <div className="absolute inset-0 border-4 border-yellow-400 rounded-3xl z-20 pointer-events-none shadow-sm"></div>
 
@@ -126,10 +126,10 @@ export const DogGallery = () => {
                                         <img
                                             src={getOptimizedImage(image, 600)}
                                             srcSet={getResponsiveSrcSet(image, [400, 600])}
-                                            sizes="(max-width: 768px) 280px, 400px"
+                                            sizes="(max-width: 640px) 75vw, (max-width: 768px) 60vw, 400px"
                                             alt={`Momento RK9 ${(index % galleryImages.length) + 1}`}
                                             width={400}
-                                            height={400}
+                                            height={300}
                                             loading="lazy"
                                             decoding="async"
                                             className="w-full h-full object-cover rounded-xl select-none"
