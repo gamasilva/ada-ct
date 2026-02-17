@@ -100,6 +100,7 @@ export const Features = () => {
                                 muted={isMuted}
                                 loop
                                 playsInline
+                                preload="none"
                                 width={320}
                                 height={568}
                                 className="w-full h-full object-cover"

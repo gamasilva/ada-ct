@@ -20,7 +20,7 @@ const {
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
     <title>{title} | CT e Hotel RK9</title>
 
@@ -47,6 +47,7 @@ const {
       href="/hero-bg-v2.webp"
       type="image/webp"
       media="(min-width: 768px)"
+      fetchpriority="high"
     />
     <link
       rel="preload"
@@ -54,13 +55,14 @@ const {
       href="/hero-bg-mobile.webp"
       type="image/webp"
       media="(max-width: 767px)"
+      fetchpriority="high"
     />
   </head>
   <body
     class="font-[Inter] text-gray-900 bg-white selection:bg-primary selection:text-white overflow-x-hidden"
   >
-    <InteractiveDogBackground client:idle />
-    <ScrollRevealBackground client:idle />
+    <InteractiveDogBackground client:media="(min-width: 1024px)" />
+    <ScrollRevealBackground client:media="(min-width: 1024px)" />
     <slot />
   </body>
 </html>

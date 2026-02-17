@@ -35,11 +35,12 @@ export const Header = () => {
             <picture>
               <img
                 src="/logo-48.webp"
+                srcSet="/logo-48.webp 1x, /logo-96.webp 2x"
                 alt="RK9 Logo"
                 width={48}
                 height={48}
-                loading="lazy"
-                decoding="async"
+                loading="eager"
+                fetchPriority="high"
                 className="h-12 w-auto rounded-full shadow-lg shadow-yellow-500/50 hover:scale-105 transition-all duration-300 hover:shadow-yellow-500/80 border-2 border-yellow-500/30"
               />
             </picture>

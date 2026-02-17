@@ -52,9 +52,9 @@ const team: TeamMember[] = [
     },
     {
         id: 'kaike',
-        name: 'Kaike',
+        name: 'Kayke',
         role: 'Monitor',
-        image: '/images/dog-gallery/WhatsApp Image 2026-02-16 at 13.40.16 (1).webp',
+        image: '/images/dog-gallery/dog-02.webp',
         bio: 'Monitor dedicado e apaixonado por cães, sempre atento às necessidades individuais de cada pet durante a recreação.',
         badge: 'Monitor de Pátio',
         specializations: [

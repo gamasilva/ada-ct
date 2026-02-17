@@ -226,6 +226,8 @@ export const NossaEstrutura = () => {
                                 loop
                                 muted
                                 playsInline
+                                preload="none"
+                                poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 9 16'%3E%3Crect fill='%2365a30d' width='9' height='16'/%3E%3C/svg%3E"
                                 width={360}
                                 height={640}
                                 className="w-full h-full object-cover"
