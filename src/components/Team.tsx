@@ -18,7 +18,7 @@ const team: TeamMember[] = [
         id: 'romeiro',
         name: 'Michel Romeiro',
         role: 'Adestrador Chefe & Comportamentalista',
-        image: '/team-romeiro.webp',
+        image: '/images/michel.webp',
         bio: 'Dedicado a transformar a relação entre cães e donos com técnica e respeito, aliando conhecimento teórico e prática avançada.',
         badge: 'Certificação Profissional',
         specializations: [
