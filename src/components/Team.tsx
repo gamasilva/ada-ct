@@ -38,7 +38,7 @@ const team: TeamMember[] = [
         id: 'monitora',
         name: 'Ada Romeiro',
         role: 'Coordenadora de Bem-Estar & Recreação',
-        image: '/team-monitora.webp',
+        image: '/images/ada.webp',
         bio: 'Responsável pelo enriquecimento ambiental e socialização segura. Seu olhar atento garante que cada cão se divirta com segurança total.',
         badge: 'Especialista em Comportamento de Matilha- Adestradora',
         specializations: [
@@ -52,9 +52,9 @@ const team: TeamMember[] = [
     },
     {
         id: 'kaike',
-        name: 'Kayke',
+        name: 'Kaiky',
         role: 'Monitor',
-        image: '/images/dog-gallery/dog-02.webp',
+        image: '/images/Kaiky.webp',
         bio: 'Monitor dedicado e apaixonado por cães, sempre atento às necessidades individuais de cada pet durante a recreação.',
         badge: 'Monitor de Pátio',
         specializations: [
