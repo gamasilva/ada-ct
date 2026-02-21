@@ -12,7 +12,7 @@ export const onRequest: MiddlewareHandler = async (context, next) => {
         "font-src 'self' https://fonts.gstatic.com; " +
         "img-src 'self' data: https: blob:; " +
         "media-src 'self' https://res.cloudinary.com https://videos.pexels.com; " +
-        "connect-src 'self'; " +
+        "connect-src 'self' https://webhooks.autosocialflow.com.br; " +
         "frame-src https://maps.google.com https://www.google.com https://*.google.com https://*.google.com.br; " +
         "frame-ancestors 'none';"
     );
