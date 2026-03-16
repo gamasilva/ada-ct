@@ -197,7 +197,7 @@ Castrado/Sem Cio: ${formData.neutered ? 'Sim \u{2705}' : 'Não \u{274C}'}
 
         // Allow some time for toast rendering
         setTimeout(() => {
-            const whatsappUrl = `https://wa.me/555194244240?text=${encodeURIComponent(text)}`;
+            const whatsappUrl = `https://wa.me/5528999574221?text=${encodeURIComponent(text)}`;
             window.open(whatsappUrl, '_blank');
         }, 1500);
     };
