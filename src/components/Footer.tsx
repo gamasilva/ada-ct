@@ -77,7 +77,7 @@ export const Footer = () => {
                             <div className="absolute inset-0 bg-black/20 pointer-events-none group-hover:bg-transparent transition-colors duration-300 z-10" />
                             <iframe
                                 title="Mapa de Localização"
-                                src="https://maps.google.com/maps?q=R.+dos+Marlins,+741+-+Guanabara,+Anchieta+-+ES,+29230-000,+Brasil&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3729.2850059689426!2d-40.620877524749126!3d-20.82019458077742!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xb8e373a8d62cab%3A0x6855e35e6d8aa461!2sRK9%20Centro%20de%20Treinamento%20e%20Hotel%20para%20C%C3%A3es!5e0!3m2!1spt-BR!2sbr!4v1773687191438!5m2!1spt-BR!2sbr"
                                 width="100%"
                                 height="100%"
                                 style={{ border: 0 }}
