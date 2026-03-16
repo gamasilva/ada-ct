@@ -7,14 +7,13 @@ const timelineData = [
         title: "Hospedagem",
         subtitle: "Hotel Pet Premium",
         content:
-            "Espaço amplo com dormitórios individuais, climatizados e higienizados diariamente. Seu cão descansa com segurança e conforto total enquanto você viaja tranquilo.",
+            "Espaço amplo com dormitórios individuais e higienizados diariamente. Seu cão descansa com segurança e conforto total enquanto você viaja tranquilo.",
         category: "Hospedagem",
         icon: Home,
         relatedIds: [2, 3],
         status: "popular" as const,
         tags: [
             "Dormitórios individuais",
-            "Ambiente climatizado",
             "Higienização diária",
             "Monitoramento 24h",
             "Atividades recreativas",

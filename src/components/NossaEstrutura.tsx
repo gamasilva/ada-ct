@@ -19,14 +19,14 @@ const structureItems: StructureItem[] = [
         id: 'lazer',
         title: "Ampla Área de Lazer",
         description: "Espaço verde para correr e brincar livremente.",
-        fullDescription: "Contamos com uma área de 600m² totalmente gramada e arborizada. O espaço é dividido por porte e temperamento, permitindo que todos os cães socializem e gastem energia com segurança sob a supervisão atenta de nossos monitores.",
+        fullDescription: "Nossa estrutura total conta com 600m², oferecendo um amplo espaço gramado e arborizado para os cães. O espaço é dividido por porte e temperamento, permitindo que todos os cães socializem e gastem energia com segurança sob a supervisão atenta de nossos monitores.",
         badge: "Diversão",
         gallery: [
             "/images/lazer/WhatsApp Image 2026-02-16 at 13.48.43 (3).webp",
             "/images/lazer/WhatsApp Image 2026-02-16 at 13.48.43 (4).webp"
         ],
         features: [
-            "600m² de gramado natural",
+            "Ampla área de gramado natural",
             "Divisão por porte",
             "Áreas sombreadas",
             "Supervisão constante"
@@ -36,7 +36,7 @@ const structureItems: StructureItem[] = [
         id: 'playground',
         title: "PlayGround e Piscina",
         description: "Exercícios e diversão refrescante.",
-        fullDescription: "Para os dias quentes e para manter a forma, oferecemos uma piscina exclusiva para cães e um circuito completo de Agility. Nossas atividades são planejadas para estimular tanto o físico quanto o mental dos hóspedes.",
+        fullDescription: "Para os dias quentes e para manter a forma, oferecemos uma piscina exclusiva para cães e um Playground completo. Nossas atividades são planejadas para estimular tanto o físico quanto o mental dos hóspedes.",
         badge: "Exercícios",
         gallery: [
             "/images/playground/WhatsApp Image 2026-02-16 at 13.40.16 (5).webp",
@@ -47,7 +47,7 @@ const structureItems: StructureItem[] = [
         ],
         features: [
             "Piscina tratada",
-            "Circuito de Agility",
+            "Playground",
             "Enriquecimento ambiental",
             "Recreação dirigida"
         ]
@@ -190,7 +190,6 @@ export const NossaEstrutura = () => {
                                 "Dormitórios Higienizados e Exclusivos",
                                 "Ampla área de atividades",
                                 "Monitoramento 24h",
-                                "Ambiente Climatizado",
                                 "Piscina Tratada",
                                 "Áreas de Descanso"
                             ].map((tag, index) => (
