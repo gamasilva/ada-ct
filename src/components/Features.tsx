@@ -101,13 +101,13 @@ export const Features = () => {
                                 loop
                                 playsInline
                                 preload="none"
-                                width={320}
-                                height={568}
+                                width={1080}
+                                height={1920}
                                 className="w-full h-full object-cover"
-                                poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 9 16'%3E%3Crect fill='%2365a30d' width='9' height='16'/%3E%3C/svg%3E"
+                                poster="/videopet-poster.webp"
                             >
                                 <source
-                                    src="https://res.cloudinary.com/drun5ro6g/video/upload/v1769642062/WhatsApp_Video_2026-01-28_at_15.48.38_a8pkrg.mp4"
+                                    src="/videopet-optimized.mp4"
                                     type="video/mp4"
                                 />
                                 Seu navegador não suporta vídeos HTML5.
