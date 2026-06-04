@@ -18,7 +18,7 @@ const team: TeamMember[] = [
         id: 'romeiro',
         name: 'Michel Romeiro',
         role: 'Adestrador Chefe & Comportamentalista',
-        image: '/images/michel.webp',
+        image: '/images/michel-opt.webp',
         bio: 'Dedicado a transformar a relação entre cães e donos com técnica e respeito, aliando conhecimento teórico e prática avançada.',
         badge: 'Certificação Profissional',
         specializations: [
@@ -38,7 +38,7 @@ const team: TeamMember[] = [
         id: 'monitora',
         name: 'Ada Romeiro',
         role: 'Coordenadora de Bem-Estar & Recreação',
-        image: '/images/ada.webp',
+        image: '/images/ada-opt.webp',
         bio: 'Responsável pelo enriquecimento ambiental e socialização segura. Seu olhar atento garante que cada cão se divirta com segurança total.',
         badge: 'Especialista em Comportamento de Matilha- Adestradora',
         specializations: [
@@ -54,7 +54,7 @@ const team: TeamMember[] = [
         id: 'kaike',
         name: 'Kaiky',
         role: 'Monitor',
-        image: '/images/Kaiky.webp',
+        image: '/images/Kaiky-opt.webp',
         bio: 'Monitor dedicado e apaixonado por cães, sempre atento às necessidades individuais de cada pet durante a recreação.',
         badge: 'Monitor de Pátio',
         specializations: [

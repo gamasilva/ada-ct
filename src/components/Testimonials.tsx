@@ -1,78 +1,90 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ChevronLeft, ChevronRight, Star, Quote } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Star } from 'lucide-react';
 
 const reviews = [
     {
         id: 1,
-        name: "Michel Lima",
-        dog: "Cliente RK9",
-        text: "Se quer ter um cão feliz, educado e protegido, o lugar é aqui. Seja para educar, hospedar ou até mesmo para passar o dia se divertindo. Nossos cães merecem.",
+        name: "Stefania Mocelin",
+        text: "O lugar é maravilhoso e tem ótima infraestrutura. Toda equipe é muito atenciosa. Nos mantém atualizados durante toda estadia do doguinho. Viajo tranquila e meu cachorro simplesmente ama ficar lá. Super recomendo!",
         rating: 5,
-        image: `https://ui-avatars.com/api/?name=Michel+Lima&background=0D9488&color=fff`,
-        date: "7 meses atrás"
+        date: "2 meses atrás"
     },
     {
         id: 2,
-        name: "Aline Lima",
-        dog: "Cliente RK9",
-        text: "Recomendo demais para quem precisa hospedar seu cachorro na região de Anchieta. Eles foram super atenciosos com meus dois cachorros, não tenho palavras para expressar minha gratidão pela hospedagem.",
+        name: "Carla Cimini",
+        text: "Lugar maravilhoso! Nota 10000000! quando eu viajo, deixo meu filhote de 4 patas e fico super tranquila. Ada e Michel são pessoas maravilhosas e super responsáveis! Indico milhões de vezes! 👏🏻👏🏻👏🏻👏🏻👏🏻👏🏻",
         rating: 5,
-        image: `https://ui-avatars.com/api/?name=Aline+Lima&background=0D9488&color=fff`,
-        date: "1 ano atrás"
+        date: "2 meses atrás"
     },
     {
         id: 3,
-        name: "Lucas Mallmann",
-        dog: "Cliente RK9",
-        text: "Você que mora em Anchieta, ou está passando um tempo por lá, e precise de uma estadia para seu cãozinho, este é o lugar perfeito para ele! Infraestrutura sensacional para o seu pet brincar, descontrair e depois descansa em paz.",
+        name: "Henrique Nelson Ferreira",
+        text: "Excelentes serviços, local super adequado e profissionais altamente qualificados para cuidar dos nossos amigos de patas!",
         rating: 5,
-        image: `https://ui-avatars.com/api/?name=Lucas+Mallmann&background=0D9488&color=fff`,
-        date: "1 ano atrás"
+        date: "2 meses atrás"
     },
     {
         id: 4,
-        name: "Leonardo Alves",
-        dog: "Cliente RK9",
-        text: "O RK9 é um centro de treinamento e hotel para dogs. Tenho total confiança e admiração pelo trabalho que eles executam.",
+        name: "Michel Lima",
+        text: "Se quer ter um cão feliz, educado e protegido, o lugar é aqui. Seja para educar, hospedar ou até mesmo para passar o dia se divertindo. Nossos cães merecem.",
         rating: 5,
-        image: `https://ui-avatars.com/api/?name=Leonardo+Alves&background=0D9488&color=fff`,
-        date: "8 meses atrás"
+        date: "10 meses atrás"
     },
     {
         id: 5,
         name: "Raquel Dos santos silva",
-        dog: "Cliente RK9",
-        text: "O espaço é ótimo. O gelinho meu cachorro que nunca esteve em contato com outros, adorou.",
+        text: "O espaço é ótimo. O Gelinho, meu cachorro que nunca esteve em contato com outros, adorou.",
         rating: 5,
-        image: `https://ui-avatars.com/api/?name=Raquel+Silva&background=0D9488&color=fff`,
-        date: "5 meses atrás"
+        date: "9 meses atrás"
     },
     {
         id: 6,
-        name: "Ricardo Gomes de Abreu",
-        dog: "Cliente RK9",
-        text: "Total segurança e responsabilidade com nosso Pet.",
+        name: "Lucas Mallmann",
+        text: "Você que mora em Anchieta, ou está passando um tempo por lá, e precise de uma estadia para seu cãozinho, este é o lugar perfeito para ele! Infraestrutura sensacional para o seu pet brincar, descontrair e depois descansa em paz. Além de um ...",
         rating: 5,
-        image: `https://ui-avatars.com/api/?name=Ricardo+Gomes&background=0D9488&color=fff`,
         date: "1 ano atrás"
     },
     {
         id: 7,
-        name: "Raquel Teixeira",
-        dog: "Cliente RK9",
-        text: "Ótimo lugar, ambiente super agradável, limpo e lindo para os cães. Super indico!!",
+        name: "Yasmin",
+        text: "Só deixo meu cachorro aí, ótimo ambiente.",
         rating: 5,
-        image: `https://ui-avatars.com/api/?name=Raquel+Teixeira&background=0D9488&color=fff`,
-        date: "3 anos atrás"
+        date: "2 meses atrás"
     },
     {
         id: 8,
-        name: "Isabella Sarmento",
-        dog: "Cliente RK9",
+        name: "Aline Lima",
+        text: "Recomendo demais para quem precisa hospedar seu cachorro na região de Anchieta. Eles foram super atenciosos com meus dois cachorros, não tenho palavras para expressar minha gratidão pela hospedagem.",
+        rating: 5,
+        date: "1 ano atrás"
+    },
+    {
+        id: 9,
+        name: "Leonardo Alves",
+        text: "O RK9 é um centro de treinamento e hotel para dogs. Tenho total confiança e admiração pelo trabalho que eles executam.",
+        rating: 5,
+        date: "1 ano atrás"
+    },
+    {
+        id: 10,
+        name: "Ricardo Gomes de Abreu",
+        text: "Total segurança e responsabilidade com nosso Pet.",
+        rating: 5,
+        date: "1 ano atrás"
+    },
+    {
+        id: 11,
+        name: "Raquel Teixeira",
+        text: "Ótimo lugar, ambiente super agradável, limpo e lindo para os cães. Super indico!!",
+        rating: 5,
+        date: "3 anos atrás"
+    },
+    {
+        id: 12,
+        name: "Isabella Sarmento Alves Ferreira",
         text: "Excelente localização e atendimento, além de profissionais super qualificados!!!",
         rating: 5,
-        image: `https://ui-avatars.com/api/?name=Isabella+Sarmento&background=0D9488&color=fff`,
         date: "3 anos atrás"
     }
 ];
@@ -128,15 +140,23 @@ export const Testimonials = () => {
                         className="inline-block px-4 py-1.5 mb-4 rounded-full bg-yellow-500/10 border border-yellow-500/20"
                     >
                         <span className="text-yellow-600 font-bold text-sm tracking-wider uppercase">
-                            Depoimentos
+                            Depoimentos do Google
                         </span>
                     </motion.div>
                     <h2 className="text-3xl md:text-5xl font-black text-gray-900 mb-4 tracking-tight">
                         O que dizem nossos clientes
                     </h2>
-                    <p className="text-gray-600 max-w-2xl mx-auto">
+                    <p className="text-gray-600 max-w-2xl mx-auto mb-4">
                         A confiança de centenas de tutores que já viveram a experiência RK9.
                     </p>
+                    {/* Google 5.0 Rating Summary */}
+                    <div className="flex items-center justify-center gap-1 mt-2">
+                        <span className="font-extrabold text-2xl text-gray-900 mr-2">5.0</span>
+                        {[...Array(5)].map((_, i) => (
+                            <Star key={i} size={22} className="text-yellow-500 fill-yellow-500" />
+                        ))}
+                        <span className="text-gray-500 font-semibold text-sm ml-2">(Nota máxima no Google)</span>
+                    </div>
                 </div>
 
                 {/* Carousel Container */}
@@ -178,21 +198,15 @@ export const Testimonials = () => {
                                         "{review.text}"
                                     </p>
 
-                                    {/* Reviewer Info */}
-                                    <div className="flex items-center gap-4 pt-4 border-t border-gray-100 relative z-10">
-                                        <img
-                                            src={review.image}
-                                            alt={review.name}
-                                            width={48}
-                                            height={48}
-                                            loading="lazy"
-                                            decoding="async"
-                                            className="w-12 h-12 rounded-full object-cover ring-2 ring-green-100"
-                                        />
+                                    {/* Reviewer Info (No Avatar Image) */}
+                                    <div className="flex items-center justify-between pt-4 border-t border-gray-100 relative z-10">
                                         <div>
                                             <p className="font-bold text-gray-900">{review.name}</p>
                                             <p className="text-xs text-gray-400 font-medium">{review.date}</p>
                                         </div>
+                                        <span className="text-xs text-yellow-600 font-semibold bg-yellow-500/10 px-2.5 py-1 rounded-full">
+                                            Avaliação Google
+                                        </span>
                                     </div>
                                 </div>
                             </motion.div>
@@ -248,6 +262,24 @@ export const Testimonials = () => {
                         >
                             <ChevronRight size={24} strokeWidth={2.5} />
                         </button>
+                    </div>
+
+                    {/* Google Reviews Redirect Button */}
+                    <div className="flex justify-center mt-12 relative z-10">
+                        <a
+                            href="https://share.google/vjB9Y6CncovK4eTpc"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-3 bg-yellow-500 hover:bg-yellow-400 text-gray-900 font-extrabold px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+                        >
+                            <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
+                                <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+                                <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
+                                <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
+                            </svg>
+                            Ver todas as avaliações no Google
+                        </a>
                     </div>
                 </div>
             </div>

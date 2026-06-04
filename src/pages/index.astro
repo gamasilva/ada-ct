@@ -15,7 +15,10 @@ import { Testimonials } from "../components/Testimonials";
 import ServicesTimeline from "../components/ServicesTimelineDemo";
 ---
 
-<Layout title="Home">
+<Layout 
+	title="Hotel e Centro de Treinamento RK9"
+	description="Hospedagem de elite, creche e adestramento inteligente em Anchieta. Conforto, segurança 24h e lazer completo para seu cão. Faça já sua reserva!"
+>
 	<Header client:load />
 
 	<main class="relative z-10 pt-20">
@@ -122,6 +125,6 @@ import ServicesTimeline from "../components/ServicesTimelineDemo";
 		<FAQ client:visible />
 	</main>
 
-	<Footer client:visible />
+	<Footer />
 	<WhatsAppButton client:idle />
 </Layout>

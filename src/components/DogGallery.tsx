@@ -3,18 +3,18 @@ import { Bone, ChevronLeft, ChevronRight } from 'lucide-react';
 import { getOptimizedImage, getResponsiveSrcSet } from '../utils/cloudinary';
 
 const galleryImages = [
-    "/images/dog-gallery/dog-01.webp",
-    "/images/dog-gallery/dog-02.webp",
-    "/images/dog-gallery/dog-03.webp",
-    "/images/dog-gallery/dog-04.webp",
-    "/images/dog-gallery/dog-05.webp",
-    "/images/dog-gallery/dog-06.webp",
-    "/images/dog-gallery/dog-07.webp",
-    "/images/dog-gallery/dog-08.webp",
-    "/images/dog-gallery/dog-09.webp",
-    "/images/dog-gallery/dog-10.webp",
-    "/images/dog-gallery/dog-11.webp",
-    "/images/dog-gallery/dog-12.webp"
+    "/images/dog-gallery-opt/dog-01.webp",
+    "/images/dog-gallery-opt/dog-02.webp",
+    "/images/dog-gallery-opt/dog-03.webp",
+    "/images/dog-gallery-opt/dog-04.webp",
+    "/images/dog-gallery-opt/dog-05.webp",
+    "/images/dog-gallery-opt/dog-06.webp",
+    "/images/dog-gallery-opt/dog-07.webp",
+    "/images/dog-gallery-opt/dog-08.webp",
+    "/images/dog-gallery-opt/dog-09.webp",
+    "/images/dog-gallery-opt/dog-10.webp",
+    "/images/dog-gallery-opt/dog-11.webp",
+    "/images/dog-gallery-opt/dog-12.webp"
 ];
 
 export const DogGallery = () => {

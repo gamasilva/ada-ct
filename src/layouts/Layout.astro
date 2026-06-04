@@ -6,23 +6,91 @@ import { ScrollRevealBackground } from "../components/ui/ScrollRevealBackground"
 interface Props {
   title: string;
   description?: string;
+  ogTitle?: string;
+  ogDescription?: string;
+  ogImage?: string;
+  ogUrl?: string;
 }
 
 const {
   title,
-  description = "Hospedagem e Adestramento de Elite para seu melhor amigo.",
+  description = "Hospedagem de elite, creche e adestramento inteligente em Anchieta. Conforto, segurança 24h e lazer completo para seu cão. Faça já sua reserva!",
+  ogTitle,
+  ogDescription,
+  ogImage = "/logo.webp",
+  ogUrl = "https://hotelpetrk9.com.br",
 } = Astro.props;
+
+const formattedTitle = title.includes("RK9") ? title : `${title} | Hotel e Centro de Treinamento RK9`;
+const activeOgTitle = ogTitle || formattedTitle;
+const activeOgDescription = ogDescription || description;
+
+const siteUrl = "https://hotelpetrk9.com.br";
+const activeOgImage = ogImage.startsWith("http") ? ogImage : `${siteUrl}${ogImage}`;
+const activeOgUrl = ogUrl.startsWith("http") ? ogUrl : `${siteUrl}${ogUrl}`;
 ---
 
 <!doctype html>
 <html lang="pt-BR" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>{title} | CT e Hotel RK9</title>
+    
+    <!-- Primary Meta Tags -->
+    <title>{formattedTitle}</title>
+    <meta name="title" content={formattedTitle} />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={activeOgUrl} />
+    <meta name="thumbnail" content={activeOgImage} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={activeOgUrl} />
+    <meta property="og:site_name" content="CT e Hotel RK9" />
+    <meta property="og:title" content={activeOgTitle} />
+    <meta property="og:description" content={activeOgDescription} />
+    <meta property="og:image" content={activeOgImage} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={activeOgUrl} />
+    <meta property="twitter:title" content={activeOgTitle} />
+    <meta property="twitter:description" content={activeOgDescription} />
+    <meta property="twitter:image" content={activeOgImage} />
+
+    <!-- JSON-LD Structured Data for Google Site Name and Organization Logo -->
+    <script type="application/ld+json" is:raw>
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://hotelpetrk9.com.br/#website",
+            "url": "https://hotelpetrk9.com.br/",
+            "name": "CT e Hotel RK9",
+            "alternateName": ["Hotel e Centro de Treinamento RK9", "RK9"],
+            "publisher": {
+              "@id": "https://hotelpetrk9.com.br/#organization"
+            }
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://hotelpetrk9.com.br/#organization",
+            "name": "CT e Hotel RK9",
+            "url": "https://hotelpetrk9.com.br/",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://hotelpetrk9.com.br/logo.webp",
+              "width": "512",
+              "height": "512"
+            },
+            "image": "https://hotelpetrk9.com.br/logo.webp"
+          }
+        ]
+      }
+    </script>
 
     <!-- Google Fonts with optimized loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -30,15 +98,7 @@ const {
     <link
       href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700&family=Inter:wght@300;400;500;600;700;900&display=swap"
       rel="stylesheet"
-      media="print"
-      onload="this.media='all'"
     />
-    <noscript>
-      <link
-        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700&family=Inter:wght@300;400;500;600;700;900&display=swap"
-        rel="stylesheet"
-      />
-    </noscript>
 
     <!-- LCP Optimization: Preload Hero Image -->
     <link

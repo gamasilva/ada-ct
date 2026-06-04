@@ -99,7 +99,7 @@ const timelineData = [
 
 export default function ServicesTimeline() {
     return (
-        <section id="servicos-orbital" className="py-16 pb-32 relative z-10">
+        <section id="servicos" className="py-16 pb-32 relative z-10">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Header */}
                 <div className="text-center mb-4">

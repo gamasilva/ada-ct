@@ -8,12 +8,12 @@ export const Header = () => {
 
 
   const navLinks = [
-    { label: 'Início', href: '/#home' },
     { label: 'Sobre', href: '/#quem-somos' },
     { label: 'Cãoleria', href: '/#dog-gallery' },
     { label: 'Serviços', href: '/#servicos' },
     { label: 'Estrutura', href: '/#estrutura' },
     { label: 'Regras', href: '/#regras' },
+    { label: 'Depoimentos', href: '/#depoimentos' },
     { label: 'Dúvidas', href: '/#faq' },
     { label: 'Contato', href: '/#contato' }
   ];
@@ -31,7 +31,7 @@ export const Header = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <a href="/" className="flex items-center gap-2 group">
+          <a href="/#home" className="flex items-center gap-2 group">
             <picture>
               <img
                 src="/logo-48.webp"

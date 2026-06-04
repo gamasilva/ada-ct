@@ -5,7 +5,11 @@ import { Footer } from "../components/Footer";
 import { BookingForm } from "../components/BookingForm";
 ---
 
-<Layout title="Reservas">
+<Layout 
+    title="Agendar Hospedagem"
+    description="Garanta a vaga do seu cãozinho no melhor hotel pet e centro de adestramento de Anchieta. Preencha nosso formulário e agende agora!"
+    ogUrl="https://hotelpetrk9.com.br/reservas"
+>
     <Header client:load />
 
     <main class="relative z-10 pt-32 pb-24 min-h-screen bg-gray-50/50">
@@ -29,5 +33,5 @@ import { BookingForm } from "../components/BookingForm";
         </div>
     </main>
 
-    <Footer client:visible />
+    <Footer />
 </Layout>
