@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useState, useEffect, useRef } from 'react';
+import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { Check } from 'lucide-react';
 
 // --- Types ---
@@ -157,6 +157,9 @@ const StructureSection = ({ item, index }: { item: StructureItem, index: number 
 };
 
 export const NossaEstrutura = () => {
+    const videoRef = useRef<HTMLDivElement>(null);
+    const videoInView = useInView(videoRef, { once: true, margin: '200px' });
+
     return (
         <section id="estrutura" className="py-24 relative overflow-hidden font-sans">
             {/* Background Decoration */}
@@ -213,6 +216,7 @@ export const NossaEstrutura = () => {
                     {/* Right Side: Intro Video */}
                     <div className="w-full lg:w-1/2 flex justify-center lg:justify-end">
                         <motion.div
+                            ref={videoRef}
                             initial={{ opacity: 0, x: 50 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
@@ -220,7 +224,7 @@ export const NossaEstrutura = () => {
                             className="relative w-full max-w-[360px] aspect-[9/16] rounded-[2.5rem] overflow-hidden border-8 border-gray-900 shadow-2xl"
                         >
                             <video
-                                src="/images/WhatsApp%20Video%202026-02-16%20at%2015.09.06.mp4"
+                                src={videoInView ? "/images/WhatsApp%20Video%202026-02-16%20at%2015.09.06.mp4" : undefined}
                                 autoPlay
                                 loop
                                 muted

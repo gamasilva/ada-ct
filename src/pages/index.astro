@@ -15,10 +15,60 @@ import { Testimonials } from "../components/Testimonials";
 import ServicesTimeline from "../components/ServicesTimelineDemo";
 ---
 
-<Layout 
-	title="Hotel e Centro de Treinamento RK9"
-	description="Hospedagem de elite, creche e adestramento inteligente em Anchieta. Conforto, segurança 24h e lazer completo para seu cão. Faça já sua reserva!"
+<Layout
+	title="Hotel para Cães e Adestramento em Anchieta ES | RK9"
+	description="Hotel para cães, creche (day use) e adestramento em Anchieta - ES. Monitoramento 24h, área de lazer, playground e piscina. Agende a hospedagem do seu cão!"
 >
+	<script type="application/ld+json" slot="head" is:raw>
+		{
+			"@context": "https://schema.org",
+			"@type": "FAQPage",
+			"@id": "https://hotelpetrk9.com.br/#faq",
+			"inLanguage": "pt-BR",
+			"mainEntity": [
+				{
+					"@type": "Question",
+					"name": "Quais são as vacinas e exames obrigatórios para hospedagem?",
+					"acceptedAnswer": {
+						"@type": "Answer",
+						"text": "Para segurança de todos, exigimos: carteira de vacina em dia (V10/V8, Antirrábica e 3 doses da Polivalente para filhotes), além de vermífugo e antiparasitário em dia."
+					}
+				},
+				{
+					"@type": "Question",
+					"name": "O hotel aceita fêmeas no cio?",
+					"acceptedAnswer": {
+						"@type": "Answer",
+						"text": "Não. Fêmeas não castradas serão aceitas apenas fora do período de cio."
+					}
+				},
+				{
+					"@type": "Question",
+					"name": "Meu cão precisa ser sociável para se hospedar?",
+					"acceptedAnswer": {
+						"@type": "Answer",
+						"text": "Aceitamos apenas cães sociáveis com outros cães e pessoas. Cães com histórico de reatividade deverão passar por uma avaliação comportamental antes da hospedagem."
+					}
+				},
+				{
+					"@type": "Question",
+					"name": "O que preciso levar na mala do meu pet?",
+					"acceptedAnswer": {
+						"@type": "Answer",
+						"text": "Traga a alimentação (em potes/balde com tampa ou saco lacrado) e a carteira de vacinação. Outros pertences (caminha, brinquedo) ficam a critério do tutor."
+					}
+				},
+				{
+					"@type": "Question",
+					"name": "Como funciona o pagamento e o cancelamento da reserva?",
+					"acceptedAnswer": {
+						"@type": "Answer",
+						"text": "O agendamento é confirmado mediante pagamento de 50% do valor. Em caso de desistência, o valor da entrada não é devolvido, mas fica como crédito por 30 dias."
+					}
+				}
+			]
+		}
+	</script>
 	<Header client:load />
 
 	<main class="relative z-10 pt-20">
@@ -59,6 +109,7 @@ import ServicesTimeline from "../components/ServicesTimelineDemo";
 				>
 					Hospedagem e <br class="hidden md:block" />
 					<span class="text-yellow-400"> Adestramento </span>
+					<span class="sr-only">de Cães em Anchieta - ES</span>
 				</h1>
 
 				<p

@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { ShieldCheck, HeartPulse, Trees, PawPrint, VolumeX, Volume2 } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 
 const features = [
     {
@@ -22,6 +22,8 @@ const features = [
 
 export const Features = () => {
     const [isMuted, setIsMuted] = useState(true);
+    const videoFrameRef = useRef<HTMLDivElement>(null);
+    const videoInView = useInView(videoFrameRef, { once: true, margin: '200px' });
 
     return (
         <section id="diferenciais" className="py-24 bg-gradient-to-b from-white to-gray-50/50 relative z-10">
@@ -94,24 +96,36 @@ export const Features = () => {
                         </motion.div>
 
                         {/* Phone-Style Video Frame */}
-                        <div className="relative max-w-[300px] lg:max-w-[320px] aspect-[9/16] mx-auto rounded-[2rem] overflow-hidden border-4 border-gray-900 shadow-2xl shadow-green-900/40 group">
-                            <video
-                                autoPlay
-                                muted={isMuted}
-                                loop
-                                playsInline
-                                preload="none"
-                                width={1080}
-                                height={1920}
-                                className="w-full h-full object-cover"
-                                poster="/videopet-poster.webp"
-                            >
-                                <source
-                                    src="/videopet-optimized.mp4"
-                                    type="video/mp4"
+                        <div ref={videoFrameRef} className="relative max-w-[300px] lg:max-w-[320px] aspect-[9/16] mx-auto rounded-[2rem] overflow-hidden border-4 border-gray-900 shadow-2xl shadow-green-900/40 group">
+                            {videoInView ? (
+                                <video
+                                    autoPlay
+                                    muted={isMuted}
+                                    loop
+                                    playsInline
+                                    preload="none"
+                                    width={1080}
+                                    height={1920}
+                                    className="w-full h-full object-cover"
+                                    poster="/videopet-poster.webp"
+                                >
+                                    <source
+                                        src="/videopet-optimized.mp4"
+                                        type="video/mp4"
+                                    />
+                                    Seu navegador não suporta vídeos HTML5.
+                                </video>
+                            ) : (
+                                <img
+                                    src="/videopet-poster.webp"
+                                    alt="Cães brincando no RK9"
+                                    width={480}
+                                    height={848}
+                                    loading="lazy"
+                                    decoding="async"
+                                    className="w-full h-full object-cover"
                                 />
-                                Seu navegador não suporta vídeos HTML5.
-                            </video>
+                            )}
 
                             {/* Audio Toggle Button */}
                             <button

@@ -10,6 +10,7 @@ interface Props {
   ogDescription?: string;
   ogImage?: string;
   ogUrl?: string;
+  noindex?: boolean;
 }
 
 const {
@@ -19,6 +20,7 @@ const {
   ogDescription,
   ogImage = "/logo.webp",
   ogUrl = "https://hotelpetrk9.com.br",
+  noindex = false,
 } = Astro.props;
 
 const formattedTitle = title.includes("RK9") ? title : `${title} | Hotel e Centro de Treinamento RK9`;
@@ -42,11 +44,27 @@ const activeOgUrl = ogUrl.startsWith("http") ? ogUrl : `${siteUrl}${ogUrl}`;
     <title>{formattedTitle}</title>
     <meta name="title" content={formattedTitle} />
     <meta name="description" content={description} />
+    {noindex ? (
+      <meta name="robots" content="noindex, nofollow" />
+    ) : (
+      <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    )}
+    <meta name="keywords" content="hotel para cachorro Anchieta, hotel pet Anchieta ES, adestramento de cães Anchieta, creche para cachorro, day use pet, hospedagem canina, hotelzinho para cachorro, RK9" />
+    <meta name="author" content="CT e Hotel RK9" />
+    <meta name="publisher" content="CT e Hotel RK9" />
     <link rel="canonical" href={activeOgUrl} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
     <meta name="thumbnail" content={activeOgImage} />
+
+    <!-- Local SEO / Geo Tags -->
+    <meta name="geo.region" content="BR-ES" />
+    <meta name="geo.placename" content="Anchieta, Espírito Santo" />
+    <meta name="geo.position" content="-20.8201946;-40.6208775" />
+    <meta name="ICBM" content="-20.8201946, -40.6208775" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
     <meta property="og:url" content={activeOgUrl} />
     <meta property="og:site_name" content="CT e Hotel RK9" />
     <meta property="og:title" content={activeOgTitle} />
@@ -60,7 +78,7 @@ const activeOgUrl = ogUrl.startsWith("http") ? ogUrl : `${siteUrl}${ogUrl}`;
     <meta property="twitter:description" content={activeOgDescription} />
     <meta property="twitter:image" content={activeOgImage} />
 
-    <!-- JSON-LD Structured Data for Google Site Name and Organization Logo -->
+    <!-- JSON-LD Structured Data: WebSite + Organization + LocalBusiness -->
     <script type="application/ld+json" is:raw>
       {
         "@context": "https://schema.org",
@@ -70,7 +88,8 @@ const activeOgUrl = ogUrl.startsWith("http") ? ogUrl : `${siteUrl}${ogUrl}`;
             "@id": "https://hotelpetrk9.com.br/#website",
             "url": "https://hotelpetrk9.com.br/",
             "name": "CT e Hotel RK9",
-            "alternateName": ["Hotel e Centro de Treinamento RK9", "RK9"],
+            "alternateName": ["Hotel e Centro de Treinamento RK9", "RK9", "RK9 Centro de Treinamento e Hotel para Cães"],
+            "inLanguage": "pt-BR",
             "publisher": {
               "@id": "https://hotelpetrk9.com.br/#organization"
             }
@@ -86,19 +105,127 @@ const activeOgUrl = ogUrl.startsWith("http") ? ogUrl : `${siteUrl}${ogUrl}`;
               "width": "512",
               "height": "512"
             },
-            "image": "https://hotelpetrk9.com.br/logo.webp"
+            "image": "https://hotelpetrk9.com.br/logo.webp",
+            "email": "contato@rk9.com.br",
+            "telephone": "+5528999574221",
+            "sameAs": [
+              "https://www.instagram.com/ctromeirok9"
+            ]
+          },
+          {
+            "@type": "LocalBusiness",
+            "@id": "https://hotelpetrk9.com.br/#localbusiness",
+            "name": "RK9 Centro de Treinamento e Hotel para Cães",
+            "alternateName": "CT e Hotel RK9",
+            "description": "Hotel para cães, creche (day use) e adestramento em Anchieta - ES. Hospedagem com monitoramento 24h, ampla área de lazer, playground e piscina para seu cão.",
+            "url": "https://hotelpetrk9.com.br/",
+            "image": "https://hotelpetrk9.com.br/logo.webp",
+            "logo": "https://hotelpetrk9.com.br/logo.webp",
+            "telephone": "+5528999574221",
+            "email": "contato@rk9.com.br",
+            "priceRange": "$$",
+            "currenciesAccepted": "BRL",
+            "paymentAccepted": "Pix, Cartão de Crédito, Dinheiro",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "R. dos Marlins, 741 - Guanabara",
+              "addressLocality": "Anchieta",
+              "addressRegion": "ES",
+              "postalCode": "29230-000",
+              "addressCountry": "BR"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": -20.8201946,
+              "longitude": -40.6208775
+            },
+            "hasMap": "https://www.google.com/maps/place/RK9+Centro+de+Treinamento+e+Hotel+para+C%C3%A3es",
+            "openingHoursSpecification": [
+              {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+                "opens": "08:00",
+                "closes": "12:00"
+              },
+              {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+                "opens": "14:00",
+                "closes": "18:00"
+              },
+              {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": "Sunday",
+                "opens": "08:00",
+                "closes": "12:00"
+              },
+              {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": "Sunday",
+                "opens": "14:00",
+                "closes": "16:00"
+              }
+            ],
+            "areaServed": [
+              { "@type": "City", "name": "Anchieta" },
+              { "@type": "City", "name": "Guarapari" },
+              { "@type": "City", "name": "Piúma" },
+              { "@type": "City", "name": "Iconha" },
+              { "@type": "State", "name": "Espírito Santo" }
+            ],
+            "sameAs": [
+              "https://www.instagram.com/ctromeirok9"
+            ],
+            "makesOffer": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Hospedagem para Cães",
+                  "description": "Hospedagem canina com monitoramento 24h, área de lazer, playground e piscina."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Creche para Cães (Day Use)",
+                  "description": "Diária de recreação e socialização para o seu cão em ambiente controlado."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Adestramento de Cães",
+                  "description": "Treinamento e adestramento inteligente conduzido por especialistas em comportamento canino."
+                }
+              }
+            ],
+            "parentOrganization": {
+              "@id": "https://hotelpetrk9.com.br/#organization"
+            }
           }
         ]
       }
     </script>
+    <slot name="head" />
 
-    <!-- Google Fonts with optimized loading -->
+    <!-- Google Fonts: carregamento assíncrono (não bloqueia renderização) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700&family=Inter:wght@300;400;500;600;700;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;900&display=swap"
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;900&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
 
     <!-- LCP Optimization: Preload Hero Image -->
     <link
