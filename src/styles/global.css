@@ -3,6 +3,18 @@
 @theme {
   --color-primary: #65a30d;
   --color-secondary: #eab308;
+  --font-sans: "Inter", "Inter Fallback", ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Fallback com métricas ajustadas para imitar a Inter e evitar layout shift (CLS)
+   enquanto a fonte do Google carrega de forma assíncrona */
+@font-face {
+  font-family: "Inter Fallback";
+  src: local("Arial");
+  ascent-override: 90.44%;
+  descent-override: 22.52%;
+  line-gap-override: 0%;
+  size-adjust: 107.12%;
 }
 
 html,

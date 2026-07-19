@@ -113,14 +113,20 @@ export const Features = () => {
                                         src="/videopet-optimized.mp4"
                                         type="video/mp4"
                                     />
+                                    <track
+                                        kind="captions"
+                                        src="/captions/videopet.pt.vtt"
+                                        srcLang="pt"
+                                        label="Português"
+                                    />
                                     Seu navegador não suporta vídeos HTML5.
                                 </video>
                             ) : (
                                 <img
                                     src="/videopet-poster.webp"
                                     alt="Cães brincando no RK9"
-                                    width={480}
-                                    height={848}
+                                    width={400}
+                                    height={707}
                                     loading="lazy"
                                     decoding="async"
                                     className="w-full h-full object-cover"
